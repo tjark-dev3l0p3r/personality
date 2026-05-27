@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#0a0a0f">
-<title>Dein vollständiges Persönlichkeitsprofil</title>
+<title>Vollständiges Persönlichkeitsprofil</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-:root{--bg:#0a0a0f;--bg2:#111118;--bg3:#1a1a28;--gold:#f5c842;--gold2:#ff9c3a;--text:#f0f0f8;--muted:#666680;--border:rgba(255,255,255,0.08)}
+:root{--bg:#0a0a0f;--bg2:#111118;--bg3:#1a1a28;--gold:#f5c842;--gold2:#ff9c3a;--purple:#a855f7;--blue:#4a9eff;--text:#f0f0f8;--muted:#666680;--border:rgba(255,255,255,0.08)}
 html,body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;min-height:100vh;overflow-x:hidden}
 .screen{display:none;min-height:100vh;flex-direction:column;align-items:center;padding:24px 20px 52px;max-width:480px;margin:0 auto}
 .screen.active{display:flex;animation:fi .4s ease}
@@ -15,53 +15,68 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 .pbar{width:100%;height:3px;background:var(--bg3);border-radius:2px;margin-bottom:20px;flex-shrink:0}
 .pfill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;transition:width .4s ease}
 .title{font-size:24px;font-weight:700;text-align:center;margin-bottom:10px;line-height:1.3;width:100%}
-.sub{font-size:14px;color:var(--muted);text-align:center;margin-bottom:24px;line-height:1.6;width:100%}
+.sub{font-size:14px;color:var(--muted);text-align:center;margin-bottom:22px;line-height:1.6;width:100%}
 .btn{width:100%;padding:15px;border-radius:14px;border:none;font-size:16px;font-weight:600;cursor:pointer;transition:all .2s;margin-top:8px}
 .btn-p{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111}
 .btn-s{background:var(--bg3);color:var(--text);border:1px solid var(--border)}
 .btn:active{transform:scale(0.97)}
-.card{background:var(--bg2);border:2px solid var(--border);border-radius:14px;padding:16px;width:100%;margin-bottom:10px;cursor:pointer;transition:all .2s}
+.card{background:var(--bg2);border:2px solid var(--border);border-radius:14px;padding:15px;width:100%;margin-bottom:9px;cursor:pointer;transition:all .2s}
 .card:hover,.card.sel{border-color:var(--gold);background:rgba(245,200,66,0.05)}
-.ct{font-size:15px;font-weight:600;margin-bottom:4px}
-.cd{font-size:13px;color:var(--muted);line-height:1.5}
-.badge{width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 20px;box-shadow:0 0 50px rgba(245,200,66,0.35);animation:pulse 3s ease-in-out infinite;flex-shrink:0}
-@keyframes pulse{0%,100%{box-shadow:0 0 50px rgba(245,200,66,0.35)}50%{box-shadow:0 0 90px rgba(245,200,66,0.6)}}
-.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;margin-bottom:18px}
-.cc{background:var(--bg2);border:2px solid var(--border);border-radius:14px;padding:14px;cursor:pointer;text-align:center;transition:all .2s}
+.ct{font-size:14px;font-weight:600;margin-bottom:3px}
+.cd{font-size:12px;color:var(--muted);line-height:1.5}
+.badge{width:86px;height:86px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 18px;box-shadow:0 0 50px rgba(245,200,66,0.35);animation:pulse 3s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{box-shadow:0 0 50px rgba(245,200,66,0.35)}50%{box-shadow:0 0 85px rgba(245,200,66,0.6)}}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;width:100%;margin-bottom:16px}
+.cc{background:var(--bg2);border:2px solid var(--border);border-radius:14px;padding:13px;cursor:pointer;text-align:center;transition:all .2s}
 .cc.on{border-color:var(--gold);background:rgba(245,200,66,0.08)}
-.cc .ce{font-size:22px;margin-bottom:6px}.cc .cl{font-size:12px;font-weight:700;letter-spacing:.5px}
-.qemoji{font-size:38px;text-align:center;margin-bottom:14px}
-.qtext{font-size:18px;font-weight:600;text-align:center;margin-bottom:20px;line-height:1.4;width:100%}
-.syshead{display:flex;align-items:center;gap:12px;width:100%;margin-bottom:18px}
-.sysicon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.sysname{font-size:16px;font-weight:700}.sysdesc{font-size:12px;color:var(--muted)}
-.inp{width:100%;padding:13px 15px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:15px;margin-bottom:14px}
+.cc .ce{font-size:20px;margin-bottom:5px}.cc .cl{font-size:11px;font-weight:700;letter-spacing:.5px}
+.qemoji{font-size:36px;text-align:center;margin-bottom:12px}
+.qtext{font-size:17px;font-weight:600;text-align:center;margin-bottom:18px;line-height:1.4;width:100%}
+.syshead{display:flex;align-items:center;gap:12px;width:100%;margin-bottom:16px}
+.sysicon{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.sysname{font-size:15px;font-weight:700}.sysdesc{font-size:11px;color:var(--muted)}
+.inp{width:100%;padding:12px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:15px;margin-bottom:12px}
 .inp:focus{outline:none;border-color:var(--gold)}
-.mbti-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;width:100%;margin-bottom:18px}
-.mi{padding:9px 4px;background:var(--bg2);border:2px solid var(--border);border-radius:10px;text-align:center;cursor:pointer;font-size:11px;font-weight:700;transition:all .2s}
+.mbti-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;width:100%;margin-bottom:16px}
+.mi{padding:8px 3px;background:var(--bg2);border:2px solid var(--border);border-radius:9px;text-align:center;cursor:pointer;font-size:10px;font-weight:700;transition:all .2s}
 .mi.sel{border-color:var(--gold);background:rgba(245,200,66,0.1);color:var(--gold)}
-.spinner{width:54px;height:54px;border:3px solid var(--bg3);border-top:3px solid var(--gold);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 24px}
+.spinner{width:52px;height:52px;border:3px solid var(--bg3);border-top:3px solid var(--gold);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 22px}
 @keyframes spin{to{transform:rotate(360deg)}}
-.rs{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:18px 18px 16px;width:100%;margin-bottom:10px}
-.rs-gold{border-color:rgba(245,200,66,.25);background:rgba(245,200,66,.03)}
-.rs h3{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;font-weight:700}
-.rs p{font-size:13.5px;line-height:1.78;color:var(--text)}
-.rs p+p{margin-top:10px}
-.tlist{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
-.t{padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500}
+.rs{background:var(--bg2);border:1px solid var(--border);border-radius:15px;padding:17px;width:100%;margin-bottom:9px}
+.rs h3{font-size:10.5px;color:var(--gold);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:9px;font-weight:700}
+.rs p{font-size:13px;line-height:1.8;color:var(--text)}
+.rs p+p{margin-top:9px}
+.tlist{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.t{padding:3px 11px;border-radius:20px;font-size:11px;font-weight:600}
 .t.g{background:rgba(34,197,94,.15);color:#4ade80}
 .t.r{background:rgba(239,68,68,.15);color:#f87171}
-.tbadges{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:20px}
-.tb{padding:5px 13px;border-radius:20px;font-size:12px;font-weight:700}
-.pl{font-size:12px;color:var(--muted);margin-bottom:6px;width:100%}
-.mode-card{background:var(--bg2);border:2px solid var(--border);border-radius:18px;padding:22px 18px;width:100%;margin-bottom:12px;cursor:pointer;transition:all .2s}
-.mode-card.sel{border-color:var(--gold);background:rgba(245,200,66,.05)}
-.mode-icon{font-size:32px;margin-bottom:10px}
-.mode-title{font-size:17px;font-weight:700;margin-bottom:6px}
-.mode-desc{font-size:13px;color:var(--muted);line-height:1.55}
-.mode-tag{display:inline-block;padding:3px 10px;border-radius:10px;font-size:11px;font-weight:700;margin-top:8px}
+.t.b{background:rgba(74,158,255,.12);color:#6ab4ff}
+.t.p{background:rgba(168,85,247,.15);color:#c084fc}
+.tbadges{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:18px}
+.tb{padding:4px 11px;border-radius:20px;font-size:11px;font-weight:700}
+.pl{font-size:12px;color:var(--muted);margin-bottom:5px;width:100%}
+/* MODE CARDS */
+.mode-card{background:var(--bg2);border:2px solid var(--border);border-radius:16px;padding:18px 16px;width:100%;margin-bottom:10px;cursor:pointer;transition:all .2s}
+.mode-card.sel{border-color:var(--gold);background:rgba(245,200,66,.04)}
+.mode-icon{font-size:28px;margin-bottom:8px}
+.mode-title{font-size:16px;font-weight:700;margin-bottom:5px}
+.mode-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.mode-tag{display:inline-block;padding:3px 9px;border-radius:9px;font-size:10px;font-weight:700;margin-top:7px}
 .tag-fast{background:rgba(34,197,94,.15);color:#4ade80}
 .tag-deep{background:rgba(245,200,66,.2);color:var(--gold)}
+.tag-ultra{background:rgba(168,85,247,.2);color:#c084fc}
+/* CENTER CARDS (tritype) */
+.center-section{width:100%;margin-bottom:14px}
+.center-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:8px}
+.center-label.active-c{color:var(--gold)}
+/* COGS */
+.cog-stack{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.cog{padding:6px 12px;border-radius:10px;font-size:13px;font-weight:700;text-align:center}
+.cog.dom{background:rgba(245,200,66,.2);color:var(--gold);border:1px solid rgba(245,200,66,.4)}
+.cog.aux{background:rgba(74,158,255,.15);color:#6ab4ff;border:1px solid rgba(74,158,255,.3)}
+.cog.ter{background:rgba(255,255,255,.05);color:var(--muted);border:1px solid var(--border)}
+.cog.inf{background:rgba(239,68,68,.08);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.cog-label{font-size:10px;color:var(--muted);margin-top:6px}
 </style>
 </head>
 <body>
@@ -74,12 +89,12 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
     <p class="sub">5 Systeme. Sieben Lebensbereiche.<br><span style="color:var(--gold)">MBTI · Enneagramm · Astrologie · Numerologie · Instinkt</span></p>
   </div>
   <button class="btn btn-p" onclick="go('s1')">Profil starten →</button>
-  <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:12px">Kostenlos · Keine Anmeldung · Exportierbar</p>
+  <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:11px">Kostenlos · Keine Anmeldung</p>
 </div>
 
 <!-- WHAT DO YOU KNOW -->
 <div id="s1" class="screen">
-  <h1 class="title" style="text-align:left;font-size:20px">Was weißt du schon?</h1>
+  <h1 class="title" style="text-align:left;font-size:19px">Was weißt du schon?</h1>
   <p class="sub" style="text-align:left">Wähle was du bereits kennst — dann überspringen wir den Test dafür.</p>
   <div class="cgrid">
     <div class="cc" id="ck-mbti" onclick="toggleKnow('mbti')"><div class="ce">🧠</div><div class="cl">MBTI</div></div>
@@ -87,27 +102,37 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
     <div class="cc" id="ck-astro" onclick="toggleKnow('astro')"><div class="ce">⭐</div><div class="cl">Astrologie</div></div>
     <div class="cc" id="ck-inst" onclick="toggleKnow('inst')"><div class="ce">⚡</div><div class="cl">Instinkt</div></div>
   </div>
-  <p style="font-size:12px;color:var(--muted);margin-bottom:18px;width:100%">💡 Numerologie wird automatisch berechnet.</p>
+  <p style="font-size:12px;color:var(--muted);margin-bottom:16px;width:100%">💡 Numerologie wird automatisch berechnet.</p>
   <button class="btn btn-p" onclick="go('s-mode')">Weiter →</button>
 </div>
 
 <!-- MODE SELECTION -->
 <div id="s-mode" class="screen">
-  <h1 class="title" style="font-size:20px;text-align:left">Welchen Modus willst du?</h1>
-  <p class="sub" style="text-align:left">Der Präzise-Modus stellt mehr Fragen und liefert genauere Ergebnisse.</p>
+  <h1 class="title" style="font-size:19px;text-align:left">Welchen Modus?</h1>
+  <p class="sub" style="text-align:left">Mehr Fragen = genaueres Ergebnis. Wähle deinen Modus.</p>
+
   <div class="mode-card sel" id="mode-fast" onclick="selMode('fast')">
     <div class="mode-icon">⚡</div>
-    <div class="mode-title">Schnell-Modus</div>
-    <div class="mode-desc">~5 Minuten. Minimale Fragen pro System. Für eine schnelle, solide Einschätzung.</div>
-    <div class="mode-tag tag-fast">4 MBTI · 1 Ennea · 3 Instinkt</div>
+    <div class="mode-title">Schnell</div>
+    <div class="mode-desc">~5 Minuten. Minimale Fragen, solide Basis-Einschätzung.</div>
+    <div class="mode-tag tag-fast">4 MBTI · Pick-One Ennea · 3 Instinkt</div>
   </div>
+
   <div class="mode-card" id="mode-deep" onclick="selMode('deep')">
     <div class="mode-icon">🔬</div>
-    <div class="mode-title">Präzise-Modus</div>
-    <div class="mode-desc">~15 Minuten. Ausführlichere Fragen, detailliertere Auswertung aller 5 Systeme.</div>
-    <div class="mode-tag tag-deep">8 MBTI · Tritype Ennea · 5 Instinkt</div>
+    <div class="mode-title">Präzise</div>
+    <div class="mode-desc">~15 Minuten. Detailliertere Auswertung mit Tritype & erweitertem MBTI.</div>
+    <div class="mode-tag tag-deep">8 MBTI · Tritype · 5 Instinkt</div>
   </div>
-  <button class="btn btn-p" onclick="startFlow()" style="margin-top:12px">Starten →</button>
+
+  <div class="mode-card" id="mode-ultra" onclick="selMode('ultra')">
+    <div class="mode-icon">🧬</div>
+    <div class="mode-title">Ultra Präzise</div>
+    <div class="mode-desc">~30 Minuten. 12 MBTI-Fragen, Kognitive Funktionen, vollständiger Tritype, Numerologie-Tiefenprofil (Expression + Seelenzahl), Aszendent und sekundärer Instinkt.</div>
+    <div class="mode-tag tag-ultra">12 MBTI · Kognitive Funktionen · Tritype · Expression · Seelenzahl · Aszendent</div>
+  </div>
+
+  <button class="btn btn-p" onclick="startFlow()" style="margin-top:14px">Starten →</button>
 </div>
 
 <!-- MBTI KNOWN -->
@@ -128,23 +153,39 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 
 <!-- ENNEAGRAM -->
 <div id="s-ennea" class="screen">
-  <div class="syshead"><div class="sysicon">🔢</div><div><div class="sysname" id="ennea-title">Enneagramm</div><div class="sysdesc" id="ennea-sub">Wähle was am tiefsten resoniert</div></div></div>
-  <p id="ennea-hint" class="pl">Welche Kernmotivation trifft am tiefsten auf dich zu?</p>
+  <div class="syshead"><div class="sysicon">🔢</div><div><div class="sysname" id="ennea-title">Enneagramm</div><div class="sysdesc" id="ennea-sub">Primärtyp</div></div></div>
+  <p id="ennea-hint" class="pl">Welche Kernmotivation resoniert am tiefsten?</p>
   <div id="ennea-list" style="width:100%"></div>
   <div style="width:100%;margin-top:6px">
-    <p class="pl">Wing (optional, z.B. w7 oder leer):</p>
+    <p class="pl">Wing (optional, z.B. w7):</p>
     <input class="inp" id="ennea-w" placeholder="w7 / w9 / leer" maxlength="3">
   </div>
   <button class="btn btn-p" onclick="confirmEnnea()">Weiter →</button>
 </div>
 
-<!-- ENNEAGRAM SECONDARY (Präzise mode) -->
-<div id="s-ennea2" class="screen">
-  <div class="syshead"><div class="sysicon">🔢</div><div><div class="sysname">Enneagramm</div><div class="sysdesc">Sekundärtyp (Tritype)</div></div></div>
-  <p class="pl">Welcher Typ kommt dir als zweites am nächsten?</p>
-  <div id="ennea2-list" style="width:100%"></div>
-  <button class="btn btn-p" onclick="confirmEnnea2()">Weiter →</button>
+<!-- TRITYPE (Präzise + Ultra) -->
+<div id="s-tritype" class="screen">
+  <div class="syshead"><div class="sysicon">🔢</div><div><div class="sysname">Tritype</div><div class="sysdesc">Wähle einen Typ aus jedem Zentrum</div></div></div>
+  <p class="pl" style="margin-bottom:14px;font-size:13px;color:var(--text)">Jeder Mensch nutzt alle 3 Enneagramm-Zentren. Wähle aus den verbleibenden Zentren jeweils einen Typ.</p>
+  <div id="tritype-body" class="center-section"></div>
+  <div id="tritype-heart" class="center-section"></div>
+  <div id="tritype-head" class="center-section"></div>
+  <button class="btn btn-p" onclick="confirmTritype()">Weiter →</button>
   <button class="btn btn-s" onclick="next()">Überspringen</button>
+</div>
+
+<!-- NAME INPUT (Ultra) -->
+<div id="s-name" class="screen">
+  <div class="syshead"><div class="sysicon">🔢</div><div><div class="sysname">Numerologie — Tief</div><div class="sysdesc">Vollständiger Geburtsname</div></div></div>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:18px;width:100%;line-height:1.6">Der vollständige Name aus der Geburtsurkunde wird genutzt um deine <b>Ausdruckszahl (Expression)</b> und <b>Seelenzahl (Soul Urge)</b> zu berechnen.</p>
+  <p class="pl">Vorname(n):</p>
+  <input class="inp" id="name-first" placeholder="z.B. Thomas Alexander" autocomplete="given-name">
+  <p class="pl">Nachname:</p>
+  <input class="inp" id="name-last" placeholder="z.B. Müller" autocomplete="family-name">
+  <div id="num-preview" style="display:none;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px;width:100%;margin-bottom:12px;font-size:13px;line-height:2"></div>
+  <button class="btn btn-s" onclick="calcNamePreview()">Vorschau berechnen</button>
+  <button class="btn btn-p" onclick="confirmName()">Weiter →</button>
+  <button class="btn btn-s" onclick="skipName()">Überspringen</button>
 </div>
 
 <!-- ASTRO -->
@@ -152,9 +193,15 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
   <div class="syshead"><div class="sysicon">⭐</div><div><div class="sysname">Astrologie + Numerologie</div><div class="sysdesc">Geburtsdatum</div></div></div>
   <p class="pl">Geburtsdatum:</p>
   <input type="date" class="inp" id="bday" onchange="previewBday()">
-  <div id="bday-preview" style="display:none;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:15px;width:100%;margin-bottom:14px;font-size:13px;line-height:1.9"></div>
+  <div id="bday-preview" style="display:none;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px;width:100%;margin-bottom:12px;font-size:13px;line-height:2"></div>
+  <div id="ultra-astro" style="display:none;width:100%">
+    <p class="pl">Geburtszeit (für Aszendent-Annäherung):</p>
+    <input type="time" class="inp" id="btime" onchange="previewBday()">
+    <p class="pl">Aszendent (falls bekannt — überschreibt Berechnung):</p>
+    <input class="inp" id="rising-inp" placeholder="z.B. Skorpion, Widder…">
+  </div>
   <div style="width:100%">
-    <p class="pl">Mondzeichen (falls bekannt, optional):</p>
+    <p class="pl">Mondzeichen (optional):</p>
     <input class="inp" id="moon-inp" placeholder="z.B. Löwe, Skorpion…">
   </div>
   <button class="btn btn-p" onclick="confirmAstro()">Weiter →</button>
@@ -163,17 +210,14 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 <!-- INSTINCT KNOWN -->
 <div id="s-inst-k" class="screen">
   <div class="syshead"><div class="sysicon">⚡</div><div><div class="sysname">Dominanter Instinkt</div><div class="sysdesc">Dein Subtyp</div></div></div>
-  <div class="card" data-v="sx" onclick="selInstK(this)">
-    <div class="ct">🔥 sx — Sexual / Intensität</div>
-    <div class="cd">Intensive Verbindungen, magnetische Energie, Alles-oder-Nichts, Tiefe über Breite</div>
-  </div>
-  <div class="card" data-v="sp" onclick="selInstK(this)">
-    <div class="ct">🏡 sp — Selbsterhaltung</div>
-    <div class="cd">Sicherheit, Ressourcen, Gesundheit, Komfort, das Eigene schützen und aufbauen</div>
-  </div>
-  <div class="card" data-v="so" onclick="selInstK(this)">
-    <div class="ct">🌐 so — Sozial / Gemeinschaft</div>
-    <div class="cd">Community, Status, Zugehörigkeit, gesellschaftlicher Einfluss und Netzwerke</div>
+  <div class="card" data-v="sx" onclick="selInstK(this)"><div class="ct">🔥 sx — Sexual / Intensität</div><div class="cd">Intensive Verbindungen, Alles-oder-Nichts, magnetische Energie, Tiefe über Breite</div></div>
+  <div class="card" data-v="sp" onclick="selInstK(this)"><div class="ct">🏡 sp — Selbsterhaltung</div><div class="cd">Sicherheit, Ressourcen, Gesundheit, Komfort, das Eigene aufbauen</div></div>
+  <div class="card" data-v="so" onclick="selInstK(this)"><div class="ct">🌐 so — Sozial / Gemeinschaft</div><div class="cd">Community, Status, Zugehörigkeit, gesellschaftlicher Einfluss</div></div>
+  <div id="inst-secondary-known" style="display:none;width:100%;margin-top:4px">
+    <p class="pl" style="margin-top:8px">Sekundärer Instinkt (Ultra-Modus):</p>
+    <div class="card" data-v2="sx" onclick="selInstK2(this)"><div class="ct" style="font-size:13px">🔥 sx (sekundär)</div></div>
+    <div class="card" data-v2="sp" onclick="selInstK2(this)"><div class="ct" style="font-size:13px">🏡 sp (sekundär)</div></div>
+    <div class="card" data-v2="so" onclick="selInstK2(this)"><div class="ct" style="font-size:13px">🌐 so (sekundär)</div></div>
   </div>
   <button class="btn btn-p" onclick="confirmInstK()" style="margin-top:10px">Weiter →</button>
 </div>
@@ -190,176 +234,170 @@ html,body{background:var(--bg);color:var(--text);font-family:-apple-system,Blink
 <!-- LOADING -->
 <div id="s-load" class="screen" style="justify-content:center;text-align:center">
   <div class="spinner"></div>
-  <div class="title" style="font-size:20px">Analyse läuft...</div>
-  <p class="sub">Alle 5 Systeme werden zu einem Profil zusammengeführt.</p>
+  <div class="title" style="font-size:19px">Analyse läuft...</div>
+  <p class="sub">Alle Systeme werden zu einem Profil zusammengeführt.</p>
 </div>
 
 <!-- RESULT -->
 <div id="s-result" class="screen" style="padding-bottom:60px">
-  <div style="text-align:center;width:100%;margin-bottom:18px">
+  <div style="text-align:center;width:100%;margin-bottom:16px">
     <div class="badge" id="r-badge">🧬</div>
-    <h1 class="title" style="font-size:18px">Dein vollständiges Profil</h1>
+    <h1 class="title" style="font-size:17px">Dein vollständiges Profil</h1>
     <div class="tbadges" id="r-badges"></div>
   </div>
   <div id="r-content" style="width:100%"></div>
-  <button class="btn btn-p" onclick="shareResult()" style="margin-top:16px">Teilen 🔗</button>
+  <button class="btn btn-p" onclick="shareResult()" style="margin-top:14px">Teilen 🔗</button>
   <button class="btn btn-s" onclick="go('s0')">Nochmal starten</button>
 </div>
 
 <script>
-// ═══ STATE ═══════════════════════════════════════════
+// ═══ STATE ═══════════════════════════════════
 const R = {};
 let known = {}, mode = 'fast', flow = [], fi = 0;
 
-// ═══ DATA ════════════════════════════════════════════
+// ═══ CORE DATA ═══════════════════════════════
 const MBTI_LIST = ['INTJ','INTP','INFJ','INFP','ISTJ','ISTP','ISFJ','ISFP','ENTJ','ENTP','ENFJ','ENFP','ESTJ','ESTP','ESFJ','ESFP'];
+
 const MBTI = {
-  INTJ:{l:"Der Architekt",c:"#7c3aed",tr:["strategisch","visionär","unabhängig","perfektionistisch"],
-    sh:["Arroganz","Isolation","emotionale Kälte"],st:["Langzeitstrategie","Systemdenken","Entschlossenheit"],
-    work:"Autonomie und intellektuelle Herausforderungen ohne Mikromanagement",
-    social:"wenige, aber tiefe Verbindungen — Qualität über Quantität",
-    stress:"Rückzug, Überplanung, in Gedankenwelten verlieren"},
-  INTP:{l:"Der Denker",c:"#2563eb",tr:["analytisch","objektiv","innovativ","distanziert"],
-    sh:["Prokrastination","soziale Kälte","Unentschlossenheit"],st:["Tiefenanalyse","Innovation","Problemlösung"],
-    work:"komplexe Probleme, Theorien, technische oder wissenschaftliche Herausforderungen",
-    social:"Verbindungen über geteilte Ideen und Interessen",
-    stress:"Prokrastination, endlose Analyse ohne Umsetzung"},
-  INFJ:{l:"Der Berater",c:"#6d28d9",tr:["intuitiv","empathisch","idealistisch","visionär"],
-    sh:["Perfektionismus","Burnout","Überengagement"],st:["Menschenkenntnis","Inspiration","Tiefe"],
-    work:"Bedeutungsvolle Arbeit mit direktem positiven Impact auf Menschen",
-    social:"wenige intensive Freundschaften, tiefe Loyalität",
-    stress:"soziale Erschöpfung, Selbstaufopferung, innerer Rückzug"},
-  INFP:{l:"Der Mediator",c:"#8b5cf6",tr:["idealistisch","kreativ","empathisch","nachdenklich"],
-    sh:["Überempfindlichkeit","Vermeidung","Selbstaufopferung"],st:["Authentizität","Kreativität","tiefe Verbindungen"],
-    work:"kreative, sinnorientierte Arbeit mit Raum für Selbstexpression",
-    social:"authentische Verbindungen — Oberflächlichkeit ist unerträglich",
-    stress:"Überwältigung, sozialer Rückzug, innere Selbstkritik"},
-  ISTJ:{l:"Der Inspektor",c:"#1d4ed8",tr:["zuverlässig","pflichtbewusst","detailorientiert","strukturiert"],
-    sh:["Starrheit","emotionale Distanz","Überarbeitung"],st:["Verlässlichkeit","Organisation","Ausdauer"],
-    work:"klare Strukturen, Verantwortung, messbare Ergebnisse",
-    social:"langjährige, verlässliche Beziehungen — braucht Zeit um Vertrauen aufzubauen",
-    stress:"Überarbeitung, Rückzug hinter Regeln und Pflichten"},
-  ISTP:{l:"Der Handwerker",c:"#0369a1",tr:["pragmatisch","analytisch","ruhig","spontan"],
-    sh:["Gleichgültigkeit","Unverbindlichkeit","Impulsivität"],st:["Krisenlösung","Effizienz","praktisches Denken"],
-    work:"Hands-on Problemlösung, Freiheit, keine unnötige Bürokratie",
-    social:"locker, unabhängig — zu viel Nähe kann einengen",
-    stress:"Impulsive Handlungen, sozialer Rückzug, risikoreiches Verhalten"},
-  ISFJ:{l:"Der Hüter",c:"#047857",tr:["fürsorglich","zuverlässig","geduldig","loyal"],
-    sh:["Selbstaufopferung","Passivität","Überanpassung"],st:["Fürsorge","Loyalität","Stabilität"],
-    work:"unterstützende Rollen mit klaren Strukturen und einem Team, das verlässlich ist",
-    social:"wenige enge Freundschaften mit tiefer Loyalität",
-    stress:"Still alles schlucken, Überarbeitung, eigene Bedürfnisse ignorieren"},
-  ISFP:{l:"Der Künstler",c:"#065f46",tr:["sensibel","kreativ","spontan","friedliebend"],
-    sh:["Konfliktvermeidung","Kurzfristigkeit","Rückzug"],st:["Ästhetik","Authentizität","Präsenz"],
-    work:"kreative, autonome Arbeit ohne zu viel Struktur oder Druck",
-    social:"authentische Verbindungen im Jetzt — tief fühlen, selten zeigen",
-    stress:"Rückzug, Still sein, innerlich kochen"},
-  ENTJ:{l:"Der Kommandant",c:"#991b1b",tr:["dominant","strategisch","charismatisch","ehrgeizig"],
-    sh:["Ungeduld","Dominanz","Empathiemangel"],st:["Führung","Strategie","Effizienz"],
-    work:"Führung, Strategie, großer Verantwortungsbereich — je größer die Herausforderung, desto besser",
-    social:"wenige, starke Verbindungen — du respektierst Kompetenz und Ehrlichkeit",
-    stress:"Mikro-Management anderer, Ungeduld, Überarbeitung"},
-  ENTP:{l:"Der Debattierer",c:"#b45309",tr:["innovativ","provokativ","charismatisch","mustererkennend"],
-    sh:["Unbeständigkeit","Diskussionssucht","Prokrastination"],st:["Kreativität","Problemlösung","Adaptabilität"],
-    work:"Systeme hinterfragen, neue Lösungen entwickeln, intellektuelle Freiheit",
-    social:"stimulierende Gespräche, Ideen austauschen — Langeweile ist das Todesurteil",
-    stress:"Überplanung ohne Umsetzung, Debatten um des Debattierens willen"},
-  ENFJ:{l:"Der Protagonist",c:"#15803d",tr:["charismatisch","empathisch","führungsstark","idealistisch"],
-    sh:["Überengagement","Selbstverlust","Manipulation"],st:["Menschenführung","Inspiration","Empathie"],
-    work:"Menschen inspirieren, Teams führen, sinnorientierte Organisationen",
-    social:"tiefe, gegenseitige Beziehungen — du gibst viel und erwartest Loyalität",
-    stress:"Selbstaufopferung, Überengagement, eigene Bedürfnisse ignorieren"},
-  ENFP:{l:"Der Aktivist",c:"#0e7490",tr:["enthusiastisch","kreativ","empathisch","ideenreich"],
-    sh:["Unbeständigkeit","Fokusschwäche","Überengagement"],st:["Begeisterung","Kreativität","Menschenverbindung"],
-    work:"kreative, bedeutungsvolle Projekte mit viel Abwechslung und Freiheit",
-    social:"viele lebendige Verbindungen — du siehst das Potenzial in jedem",
-    stress:"Überforderung, Verpflichtungsvermeidung, alle Optionen offen halten"},
-  ESTJ:{l:"Der Manager",c:"#9a3412",tr:["organisiert","durchsetzungsstark","zuverlässig","pragmatisch"],
-    sh:["Starrheit","Kontrollbedürfnis","Empathiemangel"],st:["Organisation","Führung","Umsetzung"],
-    work:"klare Führung, messbarer Output, Strukturen schaffen und durchsetzen",
-    social:"Respekt und Zuverlässigkeit als Grundlage jeder Beziehung",
-    stress:"Kontrollverlust, Frustration über Ineffizienz, Überarbeitung"},
-  ESTP:{l:"Der Unternehmer",c:"#7c2d12",tr:["energetisch","pragmatisch","risikofreudig","direkt"],
-    sh:["Impulsivität","Kurzfristigkeit","Rücksichtslosigkeit"],st:["Handlungskraft","Risikobewusstsein","Charisma"],
-    work:"schnelle Entscheidungen, direkter Impact, keine langen Planungsphasen",
-    social:"breites, dynamisches Netzwerk — du magst Action und Energie",
-    stress:"Impulsive Entscheidungen, Risikoreiche Handlungen, Ablenkungssuche"},
-  ESFJ:{l:"Der Konsul",c:"#14532d",tr:["fürsorglich","loyal","harmoniesuchend","pflichtbewusst"],
-    sh:["Überanpassung","Kritikempfindlichkeit","Klatsch"],st:["Gemeinschaft","Organisation","Fürsorge"],
-    work:"Menschen koordinieren, Team-Harmonie sicherstellen, praktische Hilfeleistung",
-    social:"du bist der Mittelpunkt deines sozialen Kreises — Zugehörigkeit ist zentral",
-    stress:"Harmoniebedürfnis vs. eigene Meinung, Überanpassung"},
-  ESFP:{l:"Der Entertainer",c:"#064e3b",tr:["spontan","enthusiastisch","fürsorglich","sozial"],
-    sh:["Oberflächlichkeit","Impulsivität","Tiefenvermeidung"],st:["Lebensfreude","Empathie","Spontanität"],
-    work:"dynamische, soziale Umgebungen mit direktem menschlichen Kontakt",
-    social:"du bringst Leben in jeden Raum — tiefe Einsamkeit ist dein größter Feind",
-    stress:"Ablenkung, Impulsivität, Tiefe vermeiden"}
+  INTJ:{l:"Architekt",c:"#7c3aed",cog:["Ni","Te","Fi","Se"],
+    tr:["strategisch","visionär","unabhängig","perfektionistisch"],sh:["Arroganz","Isolation","emotionale Kälte"],st:["Langzeitstrategie","Systemdenken","Entschlossenheit"],
+    work:"Autonomie und intellektuelle Herausforderungen — ohne Mikromanagement",social:"wenige, tiefe Verbindungen",stress:"Rückzug, Überplanung, emotionale Kälte",
+    cogDesc:"Deine dominante Funktion Ni (intuitives Denken nach innen) lässt dich Muster und Zukunftsszenarien weit vor anderen erkennen. Te (externes Denken) macht dich effizient und zielorientiert. Fi (internes Fühlen) gibt dir tiefe, private Werte. Se (externe Wahrnehmung) als blinde Fleck: du kannst Details und Sinnesreize übersehen."},
+  INTP:{l:"Denker",c:"#2563eb",cog:["Ti","Ne","Si","Fe"],
+    tr:["analytisch","objektiv","innovativ","distanziert"],sh:["Prokrastination","soziale Kälte","Unentschlossenheit"],st:["Tiefenanalyse","Innovation","Problemlösung"],
+    work:"komplexe Theorien und Probleme, intellektuelle Freiheit",social:"Verbindungen über geteilte Ideen und Interessen",stress:"Endlosanalyse, soziale Isolation, Prokrastination",
+    cogDesc:"Ti (internes Denken) baut präzise innere Modelle der Wirklichkeit. Ne (externe Intuition) produziert ununterbrochen neue Ideen und Möglichkeiten. Si (interne Wahrnehmung) verbindet mit Erfahrungen der Vergangenheit. Fe (externes Fühlen) als Schwachstelle: Emotionen anderer werden manchmal übersehen."},
+  INFJ:{l:"Berater",c:"#6d28d9",cog:["Ni","Fe","Ti","Se"],
+    tr:["intuitiv","empathisch","idealistisch","visionär"],sh:["Perfektionismus","Burnout","Überengagement"],st:["Menschenkenntnis","Inspiration","Tiefe"],
+    work:"bedeutungsvolle Arbeit mit direktem humanem Impact",social:"wenige intensive Freundschaften mit tiefer Loyalität",stress:"sozialer Burnout, innerer Rückzug, Überidealisierung",
+    cogDesc:"Ni (intuitives Denken) lässt dich tiefe Wahrheiten sehen. Fe (externes Fühlen) macht dich hochempathisch und gruppenorientiert. Ti (internes Denken) gibt analytische Tiefe. Se als blinde Stelle: Körper und Gegenwart werden manchmal ignoriert."},
+  INFP:{l:"Mediator",c:"#8b5cf6",cog:["Fi","Ne","Si","Te"],
+    tr:["idealistisch","kreativ","empathisch","authentisch"],sh:["Überempfindlichkeit","Vermeidung","Selbstaufopferung"],st:["Authentizität","Kreativität","tiefe Verbindungen"],
+    work:"kreative, sinnorientierte Arbeit mit Raum für Selbstexpression",social:"authentische Verbindungen — Oberflächlichkeit ist unerträglich",stress:"Überwältigung, sozialer Rückzug, innere Selbstkritik",
+    cogDesc:"Fi (internes Fühlen) ist deine Dominante — du lebst nach tiefen, persönlichen Werten. Ne (externe Intuition) zeigt dir unzählige Möglichkeiten. Si verbindet mit persönlicher Geschichte. Te als Schwachstelle: Organisation und Effizienz kosten Energie."},
+  ISTJ:{l:"Inspektor",c:"#1d4ed8",cog:["Si","Te","Fi","Ne"],
+    tr:["zuverlässig","pflichtbewusst","detailorientiert","strukturiert"],sh:["Starrheit","emotionale Distanz","Überarbeitung"],st:["Verlässlichkeit","Organisation","Ausdauer"],
+    work:"klare Strukturen, Verantwortung und messbare Ergebnisse",social:"langjährige, verlässliche Beziehungen",stress:"Überarbeitung, Rückzug hinter Regeln",
+    cogDesc:"Si (interne Wahrnehmung) sammelt detaillierte Erfahrungen und Erinnerungen. Te macht dich organisiert und ergebnisorientiert. Fi gibt private Werte. Ne als blinder Fleck: Spontanität und neue Möglichkeiten werden oft unterschätzt."},
+  ISTP:{l:"Handwerker",c:"#0369a1",cog:["Ti","Se","Ni","Fe"],
+    tr:["pragmatisch","analytisch","ruhig","spontan"],sh:["Gleichgültigkeit","Unverbindlichkeit","Impulsivität"],st:["Krisenlösung","Effizienz","praktisches Denken"],
+    work:"Hands-on Problemlösung, Freiheit, keine unnötige Bürokratie",social:"locker, unabhängig",stress:"Impulsive Handlungen, Rückzug, Risikoverhalten",
+    cogDesc:"Ti (internes Denken) analysiert präzise. Se (externe Wahrnehmung) macht dich reaktionsschnell und präsent. Ni gibt Langzeitblick. Fe als Schwachstelle: Gefühle anderer werden unterschätzt."},
+  ISFJ:{l:"Hüter",c:"#047857",cog:["Si","Fe","Ti","Ne"],
+    tr:["fürsorglich","zuverlässig","geduldig","loyal"],sh:["Selbstaufopferung","Passivität","Überanpassung"],st:["Fürsorge","Loyalität","Stabilität"],
+    work:"unterstützende Rollen mit klaren Strukturen",social:"wenige enge Freundschaften mit tiefer Loyalität",stress:"Still alles schlucken, Überarbeitung",
+    cogDesc:"Si sammelt Erfahrungen und Erinnerungen. Fe (externes Fühlen) macht dich warmherzig und anderen zugewandt. Ti gibt analytische Tiefe. Ne als Schwachstelle: Neue Ideen und Möglichkeiten kosten Überwindung."},
+  ISFP:{l:"Künstler",c:"#065f46",cog:["Fi","Se","Ni","Te"],
+    tr:["sensibel","kreativ","spontan","friedliebend"],sh:["Konfliktvermeidung","Kurzfristigkeit","Rückzug"],st:["Ästhetik","Authentizität","Präsenz"],
+    work:"kreative, autonome Arbeit ohne übermäßigen Druck",social:"authentische Verbindungen im Jetzt",stress:"Rückzug, Stillesein, innerlich kochen",
+    cogDesc:"Fi (internes Fühlen) ist deine Kraft — tiefe persönliche Werte. Se macht dich ästhetisch sensitiv und gegenwartsorientiert. Ni gibt Langzeitblick. Te als Schwachstelle: langfristige Planung und Organisation."},
+  ENTJ:{l:"Kommandant",c:"#991b1b",cog:["Te","Ni","Se","Fi"],
+    tr:["dominant","strategisch","charismatisch","ehrgeizig"],sh:["Ungeduld","Dominanz","Empathiemangel"],st:["Führung","Strategie","Effizienz"],
+    work:"Führung, Strategie — je größer die Herausforderung desto besser",social:"wenige, starke Verbindungen — Kompetenz und Ehrlichkeit als Basis",stress:"Ungeduld, Mikro-Management, Überarbeitung",
+    cogDesc:"Te (externes Denken) ist deine Dominante — du organisierst die Außenwelt für Effizienz. Ni gibt Langzeitvision. Se macht dich präsent und reaktionsfähig. Fi als Schwachstelle: eigene und fremde Gefühle werden unterschätzt."},
+  ENTP:{l:"Debattierer",c:"#b45309",cog:["Ne","Ti","Fe","Si"],
+    tr:["innovativ","provokativ","charismatisch","mustererkennend"],sh:["Unbeständigkeit","Diskussionssucht","Prokrastination"],st:["Kreativität","Problemlösung","Adaptabilität"],
+    work:"Systeme hinterfragen, neue Lösungen entwickeln, intellektuelle Freiheit",social:"stimulierende Gespräche und Ideen",stress:"Überplanung ohne Umsetzung, Debatten um des Debattierens willen",
+    cogDesc:"Ne (externe Intuition) ist deine Dominante — du siehst überall Muster und Möglichkeiten. Ti (internes Denken) analysiert präzise. Fe gibt Empathie. Si als Schwachstelle: Details, Routinen und vergangene Erfahrungen."},
+  ENFJ:{l:"Protagonist",c:"#15803d",cog:["Fe","Ni","Se","Ti"],
+    tr:["charismatisch","empathisch","führungsstark","idealistisch"],sh:["Überengagement","Selbstverlust","Manipulation"],st:["Menschenführung","Inspiration","Empathie"],
+    work:"Menschen inspirieren, sinnorientierte Führung",social:"tiefe, gegenseitige Beziehungen",stress:"Selbstaufopferung, Überengagement",
+    cogDesc:"Fe (externes Fühlen) ist deine Dominante — du spürst Gruppenatmosphären und inspirierst. Ni gibt Tiefenvision. Se macht dich präsent. Ti als Schwachstelle: manchmal fehlt analytische Distanz."},
+  ENFP:{l:"Aktivist",c:"#0e7490",cog:["Ne","Fi","Te","Si"],
+    tr:["enthusiastisch","kreativ","empathisch","ideenreich"],sh:["Unbeständigkeit","Fokusschwäche","Überengagement"],st:["Begeisterung","Kreativität","Menschenverbindung"],
+    work:"kreative, bedeutungsvolle Projekte mit Abwechslung",social:"viele lebendige Verbindungen",stress:"Überforderung, Verpflichtungsvermeidung",
+    cogDesc:"Ne (externe Intuition) zeigt dir unzählige Möglichkeiten und Verbindungen. Fi gibt tiefe persönliche Werte. Te gibt Umsetzungskraft. Si als Schwachstelle: Details, Routinen."},
+  ESTJ:{l:"Manager",c:"#9a3412",cog:["Te","Si","Ne","Fi"],
+    tr:["organisiert","durchsetzungsstark","zuverlässig","pragmatisch"],sh:["Starrheit","Kontrollbedürfnis","Empathiemangel"],st:["Organisation","Führung","Umsetzung"],
+    work:"klare Führung, messbarer Output",social:"Respekt und Zuverlässigkeit als Basis",stress:"Kontrollverlust, Frustration über Ineffizienz",
+    cogDesc:"Te dominiert — du organisierst die Außenwelt für Effizienz. Si gibt strukturiertes Erfahrungswissen. Ne öffnet für neue Möglichkeiten. Fi als Schwachstelle: eigene Gefühle werden oft ignoriert."},
+  ESTP:{l:"Unternehmer",c:"#7c2d12",cog:["Se","Ti","Fe","Ni"],
+    tr:["energetisch","pragmatisch","risikofreudig","direkt"],sh:["Impulsivität","Kurzfristigkeit","Rücksichtslosigkeit"],st:["Handlungskraft","Risikobewusstsein","Charisma"],
+    work:"schnelle Entscheidungen, direkter Impact",social:"breites dynamisches Netzwerk",stress:"impulsive Entscheidungen, Ablenkungssuche",
+    cogDesc:"Se (externe Wahrnehmung) macht dich im Moment präsent und reaktionsschnell. Ti analysiert effizient. Fe gibt soziale Intelligenz. Ni als Schwachstelle: Langzeitplanung fällt schwer."},
+  ESFJ:{l:"Konsul",c:"#14532d",cog:["Fe","Si","Ne","Ti"],
+    tr:["fürsorglich","loyal","harmoniesuchend","pflichtbewusst"],sh:["Überanpassung","Kritikempfindlichkeit","Klatsch"],st:["Gemeinschaft","Organisation","Fürsorge"],
+    work:"Menschen koordinieren, Team-Harmonie, praktische Hilfe",social:"du bist das soziale Zentrum deines Kreises",stress:"Harmonie vs. eigene Meinung",
+    cogDesc:"Fe ist deine Dominante — Gruppenharmonie und emotionale Verbindung. Si gibt strukturiertes Erfahrungswissen. Ne öffnet für Möglichkeiten. Ti als Schwachstelle: objektive Analyse."},
+  ESFP:{l:"Entertainer",c:"#064e3b",cog:["Se","Fi","Te","Ni"],
+    tr:["spontan","enthusiastisch","fürsorglich","sozial"],sh:["Oberflächlichkeit","Impulsivität","Tiefenvermeidung"],st:["Lebensfreude","Empathie","Spontanität"],
+    work:"dynamische, soziale Umgebungen",social:"du bringst Leben in jeden Raum",stress:"Ablenkung, Impulsivität",
+    cogDesc:"Se macht dich sinnessensitiv und präsent. Fi gibt tiefe Werte. Te gibt Umsetzungskraft. Ni als Schwachstelle: Langzeitplanung und Tiefgang."}
 };
 
 const ENNEA_D = [
-  {t:1,e:"⚖️",l:"Der Perfektionist",hint:"Ich setze hohe Standards, kämpfe für Gerechtigkeit und habe einen starken inneren Kritiker.",
+  {t:1,e:"⚖️",l:"Perfektionist",hint:"Hohe Standards, Kampf für Gerechtigkeit, starker innerer Kritiker.",
    tr:["prinzipientreu","reformerisch","selbstkritisch","gerecht"],sh:["Rigidität","unterdrückter Ärger","Überarbeitung"],st:["Integrität","Qualität","Verantwortung"],
-   rel:"Du liebst tief, aber deine Standards können hoch sein — du willst jemanden, der wächst.",
-   work:"Du lieferst außergewöhnliche Qualität, kannst aber in Perfektionismus feststecken.",
-   growth:"Lerne Fehler als Teil des Prozesses zu sehen, nicht als Versagen.",
-   stress:"Kritik nach innen wenden, rigider werden, Ärger unterdrücken bis er explodiert.",
-   wing:{w2:"wärmer, zugänglicher, fürsorglich",w9:"geduldiger, toleranter, entspannter"}},
-  {t:2,e:"🤝",l:"Der Helfer",hint:"Ich bin für andere da, brauche Anerkennung und verdränge oft meine eigenen Bedürfnisse.",
+   rel:"Du liebst tief, aber Standards können hoch sein — jemanden der wächst.",
+   work:"Außergewöhnliche Qualität, aber Perfektionismus kann Fortschritt blockieren.",
+   growth:"Fehler als Teil des Prozesses sehen, nicht als Versagen.",
+   stress:"Kritik nach innen, rigider werden, Ärger unterdrücken.",
+   wing:{w2:"wärmer, zugänglicher",w9:"geduldiger, toleranter"},
+   center:"body",intLine:4,stressLine:7},
+  {t:2,e:"🤝",l:"Helfer",hint:"Für andere da sein, Anerkennung brauchen, eigene Bedürfnisse verdrängen.",
    tr:["warmherzig","fürsorglich","intuitiv","hilfsbereit"],sh:["Abhängigkeit","Stolz","eigene Bedürfnisse leugnen"],st:["Empathie","Großzügigkeit","emotionale Intelligenz"],
-   rel:"Du liebst bedingungslos — lerne auch eigene Bedürfnisse zu kommunizieren, sonst entsteht Groll.",
-   work:"Du arbeitest am besten dort, wo du direkten positiven Einfluss auf Menschen hast.",
-   growth:"Gib dir selbst das, was du anderen gibst — deine eigenen Bedürfnisse zählen genauso.",
-   stress:"Aufdringlicher werden, Erwartungen stillen, Ärger nach außen projizieren.",
-   wing:{w1:"prinzipientreuer, ehrgeiziger",w3:"sichtbarer, leistungsorientierter"}},
-  {t:3,e:"🏆",l:"Der Achiever",hint:"Erfolg und ein positives Image sind zentral. Ich bin hochanpassungsfähig und leistungsorientiert.",
+   rel:"Bedingungslos liebend — lerne auch eigene Bedürfnisse zu kommunizieren.",
+   work:"Direkter positiver Einfluss auf Menschen.",
+   growth:"Gib dir selbst, was du anderen gibst.",
+   stress:"Aufdringlicher, Erwartungen still tragen.",
+   wing:{w1:"prinzipientreuer",w3:"sichtbarer, leistungsorientierter"},
+   center:"heart",intLine:4,stressLine:8},
+  {t:3,e:"🏆",l:"Achiever",hint:"Erfolg und positives Image sind zentral. Hochanpassungsfähig und leistungsorientiert.",
    tr:["ehrgeizig","anpassungsfähig","imageorientiert","effizient"],sh:["Selbstverlust","Workaholismus","emotionale Distanz"],st:["Effizienz","Charisma","Umsetzungsstärke"],
-   rel:"Du kannst in Beziehungen Rollen spielen statt echt zu sein — Verletzlichkeit ist der Weg zur Tiefe.",
-   work:"Du lieferst Ergebnisse und übernimmst natürlich Führung — Erfolg ist dein Treibstoff.",
-   growth:"Lerne zu sein statt zu erscheinen — wer du wirklich bist, ist wertvoller als deine Leistung.",
-   stress:"Überarbeiten, Maske aufrechterhalten, emotionale Bedürfnisse ignorieren.",
-   wing:{w2:"menschlicher, verbindender",w4:"tiefer, authentischer"}},
-  {t:4,e:"🎭",l:"Der Individualist",hint:"Ich bin einzigartig, fühle tief und suche nach echter Bedeutung — oft begleitet von Melancholie.",
+   rel:"Rollen spielen statt echt sein — Verletzlichkeit ist der Weg zur Tiefe.",
+   work:"Ergebnisse liefern, natürliche Führung — Erfolg als Treibstoff.",
+   growth:"Sein statt erscheinen.",
+   stress:"Überarbeiten, Maske aufrechterhalten.",
+   wing:{w2:"menschlicher, verbindender",w4:"tiefer, authentischer"},
+   center:"heart",intLine:6,stressLine:9},
+  {t:4,e:"🎭",l:"Individualist",hint:"Einzigartig sein, tief fühlen, Bedeutung suchen — oft begleitet von Sehnsucht.",
    tr:["kreativ","empfindlich","tiefgründig","authentisch"],sh:["Neid","Selbstdrama","Vergangenheitsorientierung"],st:["Kreativität","Authentizität","emotionale Tiefe"],
-   rel:"Du sehnst dich nach absoluter Verbindung — lerne im Jetzt zu sein, nicht in der Sehnsucht.",
-   work:"Du brauchst kreative Freiheit und Bedeutung — sinnlose Aufgaben töten dich innerlich.",
-   growth:"Das Ideal existiert nicht. Doch das Reale — mit allem was es ist — kann schön sein.",
-   stress:"In Melancholie sinken, Neid, dramatisieren, Verbindungen idealisierten.",
-   wing:{w3:"ehrgeiziger, sichtbarer",w5:"analytischer, zurückgezogener"}},
-  {t:5,e:"🔬",l:"Der Beobachter",hint:"Ich sammle Wissen und Verständnis. Privatsphäre und Energie sparen sind überlebenswichtig.",
+   rel:"Absolute Verbindung — lerne im Jetzt zu sein, nicht in der Sehnsucht.",
+   work:"Kreative Freiheit und Bedeutung — Routine tötet innerlich.",
+   growth:"Das Reale — mit allem was es ist — kann schön sein.",
+   stress:"In Melancholie sinken, Neid, dramatisieren.",
+   wing:{w3:"ehrgeiziger, sichtbarer",w5:"analytischer, distanzierter"},
+   center:"heart",intLine:1,stressLine:2},
+  {t:5,e:"🔬",l:"Beobachter",hint:"Wissen und Verstehen sammeln. Privatsphäre und Energie sparen sind überlebenswichtig.",
    tr:["analytisch","introvertiert","tiefgründig","autark"],sh:["Isolation","emotionale Distanz","Energiegeriz"],st:["Wissen","Tiefenanalyse","Objektivität"],
-   rel:"Wer deine Privatsphäre respektiert, bekommt tiefe, bedingungslose Treue.",
-   work:"Tiefe, ungestörter Fokus und intellektuelle Unabhängigkeit — oberflächliche Meetings kosten dich viel.",
-   growth:"Wissen ist wertvoll. Aber teilen macht aus Wissen Weisheit.",
-   stress:"Noch mehr Rückzug, Isolation, Gefühle wegschieben.",
-   wing:{w4:"kreativer, expressiver",w6:"loyaler, verbundener"}},
-  {t:6,e:"🛡️",l:"Der Loyale",hint:"Sicherheit und Vertrauen sind zentral. Ich bin loyal, antizipiere Risiken und zweifle manchmal an mir.",
+   rel:"Wer Privatsphäre respektiert, bekommt tiefe Treue.",
+   work:"Tiefe, ungestörter Fokus, intellektuelle Unabhängigkeit.",
+   growth:"Teilen macht aus Wissen Weisheit.",
+   stress:"Noch mehr Rückzug, Gefühle wegschieben.",
+   wing:{w4:"kreativer, expressiver",w6:"loyaler, verbundener"},
+   center:"head",intLine:8,stressLine:7},
+  {t:6,e:"🛡️",l:"Loyale",hint:"Sicherheit und Vertrauen sind zentral. Loyal, Risiken antizipieren, manchmal selbstzweifelnd.",
    tr:["loyal","vorsichtig","zuverlässig","vorausschauend"],sh:["Angst","Misstrauen","Selbstzweifel"],st:["Loyalität","Voraussicht","Kooperation"],
-   rel:"Deine Loyalität ist absolut — einmal vertraut, liebst du bedingungslos.",
-   work:"Ein verlässliches, loyales Team ist dein stärkster Motivator und deine Stärke.",
-   growth:"Vertraue dir selbst so, wie du anderen vertraust — dein Urteil ist gut.",
-   stress:"In Angst- und Worst-Case-Denken fallen, übermäßige Absicherung.",
-   wing:{w5:"analytischer, introvertierter",w7:"leichter, optimistischer"}},
-  {t:7,e:"🎉",l:"Der Enthusiast",hint:"Ich bin begeistert, suche ständig neue Erfahrungen und will Schmerz und Monotonie vermeiden.",
+   rel:"Einmal vertraut: bedingungslose Loyalität.",
+   work:"Verlässliches, loyales Team als stärkster Motivator.",
+   growth:"Sich selbst so vertrauen wie anderen.",
+   stress:"Worst-Case-Denken, übermäßige Absicherung.",
+   wing:{w5:"analytischer, introvertierter",w7:"leichter, optimistischer"},
+   center:"head",intLine:9,stressLine:3},
+  {t:7,e:"🎉",l:"Enthusiast",hint:"Begeistert, neue Erfahrungen suchend, Schmerz und Monotonie vermeiden.",
    tr:["enthusiastisch","spontan","vielseitig","zukunftsorientiert"],sh:["Impulsivität","Tiefenvermeidung","Überreizung"],st:["Begeisterung","Kreativität","Resilienz"],
-   rel:"Du bringst Lebensfreude in Beziehungen — die Reife kommt, wenn du Tiefe zulässt.",
-   work:"Abwechslung, neue Projekte, stimulierende Ideen — Routine ist Gift für dich.",
-   growth:"Das Beste entsteht oft durch Tiefe, nicht durch Breite. Bleib auch wenn es unangenehm wird.",
-   stress:"Überaktivität, Ablenkungssuche, von Projekt zu Projekt springen.",
-   wing:{w6:"verantwortungsvoller, bodenständiger",w8:"entschlossener, kraftvoller"}},
-  {t:8,e:"⚔️",l:"Der Herausforderer",hint:"Ich muss stark sein, setze mich durch und dulde keine Kontrolle von außen. Ich schütze die Schwachen.",
+   rel:"Lebensfreude in Beziehungen — Tiefe zulassen ist Reife.",
+   work:"Abwechslung, neue Projekte, Stimulation — Routine ist Gift.",
+   growth:"Tiefe entsteht durch Bleiben wenn es unangenehm wird.",
+   stress:"Überaktivität, Ablenkungssuche.",
+   wing:{w6:"verantwortungsvoller, bodenständiger",w8:"entschlossener, kraftvoller"},
+   center:"head",intLine:5,stressLine:1},
+  {t:8,e:"⚔️",l:"Herausforderer",hint:"Stark sein, durchsetzen, keine Kontrolle von außen. Schwache schützen.",
    tr:["dominant","energetisch","schützend","konfrontativ"],sh:["Überwältigung","Verletzlichkeit verleugnen","Kontrollzwang"],st:["Führung","Schutz","Entschlossenheit"],
-   rel:"Du liebst intensiv und schützt fierce — Verletzlichkeit zu zeigen ist deine mutigste Handlung.",
-   work:"Einfluss, Autonomie, echte Herausforderungen — Mikromanagement ist ein Todesurteil.",
-   growth:"Stärke liegt nicht nur in der Kraft, sondern auch in der Fähigkeit, sich zu öffnen.",
-   stress:"Noch konfrontativer werden, Kontrolle erzwingen, Verletzlichkeit komplett verbergen.",
-   wing:{w7:"impulsiver, abenteuerlicher, charismatischer",w9:"geduldiger, strategischer, diplomatischer"}},
-  {t:9,e:"☮️",l:"Der Friedensstifter",hint:"Ich suche inneren Frieden, vermeide Konflikte und sehe alle Perspektiven — manchmal vergesse ich mich selbst.",
+   rel:"Intensiv lieben, fierce schützen — Verletzlichkeit zeigen ist Mut.",
+   work:"Einfluss, Autonomie, echte Herausforderungen.",
+   growth:"Stärke liegt auch in der Fähigkeit, sich zu öffnen.",
+   stress:"Konfrontativer, Kontrolle erzwingen.",
+   wing:{w7:"impulsiver, abenteuerlicher, charismatischer",w9:"geduldiger, strategischer"},
+   center:"body",intLine:2,stressLine:5},
+  {t:9,e:"☮️",l:"Friedensstifter",hint:"Inneren Frieden suchen, Konflikte vermeiden — manchmal sich selbst vergessen.",
    tr:["harmonisch","geduldig","akzeptierend","vermittelnd"],sh:["Passivität","Selbstvergessenheit","Sturheit"],st:["Vermittlung","Geduld","Stabilität"],
-   rel:"Du bist ein ruhiger, stabilisierender Partner — lerne auch deine eigenen Bedürfnisse zu äußern.",
-   work:"Harmonie im Team und Vermittlung liegen dir natürlich — du brauchst klare eigene Prioritäten.",
-   growth:"Frieden nach außen beginnt damit, für dich selbst einzustehen.",
-   stress:"Passiv-aggressiv werden, in sich zurückziehen, Entscheidungen vermeiden.",
-   wing:{w8:"entschlossener, direkter",w1:"prinzipientreuer, zielstrebiger"}}
+   rel:"Ruhiger, stabilisierender Partner — eigene Bedürfnisse äußern lernen.",
+   work:"Harmonie und Vermittlung liegen natürlich — eigene Prioritäten brauchen Klarheit.",
+   growth:"Frieden nach außen beginnt mit für sich selbst einstehen.",
+   stress:"Passiv-aggressiv, Rückzug, Entscheidungen vermeiden.",
+   wing:{w8:"entschlossener, direkter",w1:"prinzipientreuer, zielstrebiger"},
+   center:"body",intLine:3,stressLine:6}
 ];
 
 const ZODIAC = {
@@ -376,73 +414,125 @@ const ZODIAC = {
   Wassermann:{e:"♒",el:"Luft",tr:["innovativ","unabhängig","rebellisch","humanistisch"]},
   Fische:{e:"♓",el:"Wasser",tr:["intuitiv","kreativ","einfühlsam","träumerisch"]}
 };
-
+const ZODIAC_LIST = ["Widder","Stier","Zwillinge","Krebs","Löwe","Jungfrau","Waage","Skorpion","Schütze","Steinbock","Wassermann","Fische"];
 const CH_ANIMAL = ["Ratte","Büffel","Tiger","Hase","Drache","Schlange","Pferd","Ziege","Affe","Hahn","Hund","Schwein"];
 const CH_ELEM = ["Metall","Wasser","Holz","Feuer","Erde"];
 
 const LP = {
-  1:{l:"Anführer",tr:["unabhängig","ehrgeizig","pionierend"],sh:["Ego","Sturheit"],st:["Initiative","Führung"],d:"Dein Weg führt über Eigeninitiative — du bist hier um etwas zu beginnen, das noch keiner begann."},
-  2:{l:"Vermittler",tr:["kooperativ","sensibel","diplomatisch"],sh:["Abhängigkeit","Überanpassung"],st:["Empathie","Harmonie"],d:"Dein Weg liegt in Partnerschaft und Verbindung — du lernst durch Beziehungen."},
-  3:{l:"Kreativer",tr:["kommunikativ","kreativ","optimistisch"],sh:["Zerstreuung","Selbstzweifel"],st:["Kreativität","Ausdruck"],d:"Dein Weg ist kreative Selbstexpression — du bist hier um zu kommunizieren und zu inspirieren."},
-  4:{l:"Baumeister",tr:["methodisch","diszipliniert","zuverlässig"],sh:["Starrheit","Verbitterung"],st:["Ausdauer","Struktur"],d:"Dein Weg führt durch Beständigkeit — Fundament bauen, Schritt für Schritt."},
-  5:{l:"Freigeist",tr:["freiheitsliebend","adaptiv","neugierig"],sh:["Impulsivität","Unbeständigkeit"],st:["Adaptabilität","Kommunikation"],d:"Dein Weg ist Freiheit und Transformation — Grenzen sind dazu da, überwunden zu werden."},
-  6:{l:"Heiler",tr:["fürsorglich","verantwortungsvoll","liebevoll"],sh:["Kontrolle","Selbstaufopferung"],st:["Fürsorge","Harmonie"],d:"Dein Weg liegt im Heilen und Dienen — du bist hier um Liebe in die Welt zu bringen."},
-  7:{l:"Forscher",tr:["analytisch","spirituell","tiefgründig"],sh:["Isolation","Überanalyse"],st:["Tiefenanalyse","Intuition"],d:"Dein Weg führt nach innen — durch Wissen, Stille und tiefes Verstehen."},
-  8:{l:"Macher",tr:["mächtig","strategisch","materiell kompetent"],sh:["Gier","Workaholismus"],st:["Manifestation","Führung","Strategie"],d:"Dein Weg ist Macht und Manifestation — du bist hier um etwas Großes zu bauen."},
-  9:{l:"Humanist",tr:["idealistisch","universal","weise"],sh:["Selbstaufopferung"],st:["Mitgefühl","Weisheit"],d:"Dein Weg ist Vollendung und universelle Liebe — du trägst viele Gaben."},
-  11:{l:"Visionär",tr:["intuitiv","inspirierend","spirituell"],sh:["Überempfindlichkeit"],st:["Inspiration","Intuition"],d:"Als Meisterzahl bist du ein Kanal für Inspiration und höhere Ideen."},
-  22:{l:"Meisterbauer",tr:["visionär","pragmatisch","mächtig"],sh:["Überforderung"],st:["Große Visionen manifestieren"],d:"Die stärkste Meisterzahl — du bist hier um etwas Bleibendes für viele zu schaffen."}
+  1:{l:"Anführer",tr:["unabhängig","ehrgeizig","pionierend"],sh:["Ego","Sturheit"],st:["Initiative","Führung"],d:"Du bist hier um etwas zu beginnen — Eigeninitiative ist dein Weg."},
+  2:{l:"Vermittler",tr:["kooperativ","sensibel","diplomatisch"],sh:["Abhängigkeit","Überanpassung"],st:["Empathie","Harmonie"],d:"Dein Weg liegt in Partnerschaft und Verbindung."},
+  3:{l:"Kreativer",tr:["kommunikativ","kreativ","optimistisch"],sh:["Zerstreuung","Selbstzweifel"],st:["Kreativität","Ausdruck"],d:"Du bist hier um zu kommunizieren und zu inspirieren."},
+  4:{l:"Baumeister",tr:["methodisch","diszipliniert","zuverlässig"],sh:["Starrheit","Verbitterung"],st:["Ausdauer","Struktur"],d:"Fundament bauen, Schritt für Schritt — das ist dein Weg."},
+  5:{l:"Freigeist",tr:["freiheitsliebend","adaptiv","neugierig"],sh:["Impulsivität","Unbeständigkeit"],st:["Adaptabilität","Kommunikation"],d:"Freiheit und Transformation — Grenzen überwinden."},
+  6:{l:"Heiler",tr:["fürsorglich","verantwortungsvoll","liebevoll"],sh:["Kontrolle","Selbstaufopferung"],st:["Fürsorge","Harmonie"],d:"Du bist hier um Liebe und Heilung in die Welt zu bringen."},
+  7:{l:"Forscher",tr:["analytisch","spirituell","tiefgründig"],sh:["Isolation","Überanalyse"],st:["Tiefenanalyse","Intuition"],d:"Wissen, Stille, tiefes Verstehen — dein Weg führt nach innen."},
+  8:{l:"Macher",tr:["mächtig","strategisch","materiell kompetent"],sh:["Gier","Workaholismus"],st:["Manifestation","Führung","Strategie"],d:"Macht und Manifestation — du bist hier um etwas Großes zu bauen."},
+  9:{l:"Humanist",tr:["idealistisch","universal","weise"],sh:["Selbstaufopferung"],st:["Mitgefühl","Weisheit"],d:"Vollendung und universelle Liebe — du trägst viele Gaben."},
+  11:{l:"Visionär",tr:["intuitiv","inspirierend","spirituell"],sh:["Überempfindlichkeit"],st:["Inspiration","Intuition"],d:"Als Meisterzahl bist du ein Kanal für höhere Ideen."},
+  22:{l:"Meisterbauer",tr:["visionär","pragmatisch","mächtig"],sh:["Überforderung"],st:["Große Visionen manifestieren","Beständigkeit"],d:"Die stärkste Meisterzahl — etwas Bleibendes für viele bauen."}
+};
+
+const EXPNUM = {
+  1:{l:"Ausdruckszahl 1",d:"Du bist geboren um zu führen und Wege zu öffnen. Unabhängigkeit und Originalität sind dein Ausdruck."},
+  2:{l:"Ausdruckszahl 2",d:"Dein Ausdruck liegt in Zusammenarbeit, Diplomatie und Verbindung. Du vermittelst und harmonisierst."},
+  3:{l:"Ausdruckszahl 3",d:"Du drückst dich durch Kreativität, Kommunikation und Begeisterung aus. Du bist ein natürlicher Inspirator."},
+  4:{l:"Ausdruckszahl 4",d:"Dein Ausdruck ist Aufbau, Zuverlässigkeit und Struktur. Du manifestierst durch beständige Arbeit."},
+  5:{l:"Ausdruckszahl 5",d:"Freiheit, Veränderung und Vielseitigkeit sind dein Ausdruck. Du inspirierst andere durch Flexibilität."},
+  6:{l:"Ausdruckszahl 6",d:"Fürsorge, Schönheit und Verantwortung sind dein Ausdruck. Du gibst und schaffst Harmonie."},
+  7:{l:"Ausdruckszahl 7",d:"Dein Ausdruck ist Tiefenanalyse, Spiritualität und Weisheit. Du suchst und teilst Wahrheit."},
+  8:{l:"Ausdruckszahl 8",d:"Macht, Kompetenz und Manifestation sind dein Ausdruck. Du baust Großes und erschaffst Einfluss."},
+  9:{l:"Ausdruckszahl 9",d:"Humanismus, Weisheit und universelle Liebe sind dein Ausdruck. Du inspirierst Transformation."},
+  11:{l:"Ausdruckszahl 11 (Meister)",d:"Du bist ein Kanal für Inspiration und spirituelle Führung. Deine Präsenz hebt andere."},
+  22:{l:"Ausdruckszahl 22 (Meister)",d:"Du bist geboren um große Visionen zu manifestieren. Dein Ausdruck ist Meisterbaukunst."}
+};
+
+const SOULNUM = {
+  1:{l:"Seelenzahl 1",d:"Deine Seele sehnt sich nach Unabhängigkeit, Originalität und dem Weg des Anführers."},
+  2:{l:"Seelenzahl 2",d:"Deine tiefste Sehnsucht ist Verbindung, Harmonie und geliebt zu werden."},
+  3:{l:"Seelenzahl 3",d:"Deine Seele will sich kreativ ausdrücken, gesehen werden und Freude teilen."},
+  4:{l:"Seelenzahl 4",d:"Deine Seele sehnt sich nach Stabilität, Sicherheit und dem Gefühl, etwas Bleibendes aufgebaut zu haben."},
+  5:{l:"Seelenzahl 5",d:"Deine tiefste Sehnsucht ist Freiheit, Abenteuer und endlose Möglichkeiten."},
+  6:{l:"Seelenzahl 6",d:"Deine Seele will lieben, fürsorgen und gebraucht werden — Harmonie und Zuhause."},
+  7:{l:"Seelenzahl 7",d:"Deine Seele sehnt sich nach Wahrheit, Tiefe und dem Verstehen des Unsichtbaren."},
+  8:{l:"Seelenzahl 8",d:"Deine tiefste Sehnsucht ist Einfluss, Erfolg und materielles und spirituelles Meistern."},
+  9:{l:"Seelenzahl 9",d:"Deine Seele sehnt sich nach universeller Liebe, Bedeutung und dem Beitrag zum großen Ganzen."},
+  11:{l:"Seelenzahl 11",d:"Deine Seele ist eine Meisterzahl — du sehnst dich nach Inspiration, Erleuchtung und spiritueller Verbindung."},
+  22:{l:"Seelenzahl 22",d:"Deine Seele trägt die Kraft der Meisterzahl 22 — du willst Großartiges für die Menschheit bauen."}
 };
 
 const INST = {
-  sx:{e:"🔥",l:"Sexual / Intensität",tr:["intensiv","magnetisch","tief","Alles-oder-Nichts"],
-    sh:["Obsession","Eifersucht","Extreme"],st:["Tiefe","Charisma","Leidenschaft"],
+  sx:{e:"🔥",l:"Sexual / Intensität",tr:["intensiv","magnetisch","tief","Alles-oder-Nichts"],sh:["Obsession","Eifersucht","Extreme"],st:["Tiefe","Charisma","Leidenschaft"],
     rel:"Du suchst vollständige Verbindung — alles oder nichts. Halbherzigkeit ist für dich schlimmer als Einsamkeit.",
-    work:"Wenn ein Projekt dich wirklich fasziniert, bist du unaufhaltbar — wenn nicht, verlierst du schnell die Energie.",
-    social:"Du hast wenige, aber intensive Freundschaften. Breite Netzwerke ohne Tiefe lassen dich leer.",
-    family:"Familiäre Bindungen sind entweder tief und bedeutsam oder für dich kaum spürbar."},
-  sp:{e:"🏡",l:"Selbsterhaltung",tr:["stabil","autark","ressourcenbewusst","schützend"],
-    sh:["Geiz mit Energie","Isolation"],st:["Verlässlichkeit","Ausdauer","Selbstversorgung"],
-    rel:"Du bringst Stabilität und Verlässlichkeit — dein Partner kann sich auf dich verlassen wie auf wenig anderes.",
+    work:"Wenn ein Projekt dich wirklich fasziniert, bist du unaufhaltbar.",
+    social:"Wenige, intensive Freundschaften. Breite Netzwerke ohne Tiefe lassen dich leer.",
+    family:"Familiäre Bindungen sind entweder tief bedeutsam oder kaum spürbar."},
+  sp:{e:"🏡",l:"Selbsterhaltung",tr:["stabil","autark","ressourcenbewusst","schützend"],sh:["Geiz mit Energie","Isolation"],st:["Verlässlichkeit","Ausdauer","Selbstversorgung"],
+    rel:"Du bringst Stabilität und Verlässlichkeit — dein Partner kann sich auf dich verlassen.",
     work:"Du arbeitest nachhaltig und langfristig — Burnout vermeidest du instinktiv.",
-    social:"Deine Freundschaften sind langfristig und verlässlich — du bist nicht für oberflächliche Kontakte.",
-    family:"Familie und das eigene Heim haben hohe Priorität — du schützt und versorgst."},
-  so:{e:"🌐",l:"Sozial / Gemeinschaft",tr:["vernetzt","statusbewusst","einflussreich","gemeinschaftlich"],
-    sh:["Statusangst","Gruppenabhängigkeit"],st:["Netzwerk","Einfluss","Gemeinschaft"],
-    rel:"Du willst einen Partner, der Teil deiner Welt ist — gemeinsame Freundeskreise und Erlebnisse sind wichtig.",
-    work:"Du arbeitest am besten in Netzwerken, mit gesellschaftlicher Wirkung und sichtbarer Rolle.",
-    social:"Breite, aktive soziale Netzwerke sind dein Element — du weißt wer wen kennt.",
-    family:"Familie als soziale Einheit ist dir wichtig — Traditionen und Zusammenkünfte haben Bedeutung."}
+    social:"Langfristige, verlässliche Freundschaften — keine Oberflächlichkeit.",
+    family:"Familie und eigenes Heim haben hohe Priorität — du schützt und versorgst."},
+  so:{e:"🌐",l:"Sozial / Gemeinschaft",tr:["vernetzt","statusbewusst","einflussreich","gemeinschaftlich"],sh:["Statusangst","Gruppenabhängigkeit"],st:["Netzwerk","Einfluss","Gemeinschaft"],
+    rel:"Partner soll Teil deiner Welt sein — gemeinsame Erlebnisse und Freundeskreise.",
+    work:"Netzwerke, gesellschaftliche Wirkung und sichtbare Rolle.",
+    social:"Breite, aktive soziale Netzwerke sind dein Element.",
+    family:"Familie als soziale Einheit — Traditionen und Zusammenkünfte."}
 };
 
-// ═══ MBTI FRAGEN ═════════════════════════════════════
+// ═══ MBTI QUESTIONS ══════════════════════════
 const MQ_FAST = [
-  {e:"⚡",q:"Wo bekommst du Energie?",a:[{t:"Bei anderen Menschen, Gesprächen, Aktivitäten",v:"E"},{t:"Alleine, in Ruhe, durch Rückzug",v:"I"}]},
-  {e:"🔭",q:"Wie nimmst du die Welt wahr?",a:[{t:"Konkrete Fakten und Details — was ist",v:"S"},{t:"Muster, Bedeutungen, Möglichkeiten — was sein könnte",v:"N"}]},
-  {e:"⚖️",q:"Wie triffst du wichtige Entscheidungen?",a:[{t:"Logisch, objektiv, nach Analyse",v:"T"},{t:"Nach Werten, Gefühl, Harmonie",v:"F"}]},
-  {e:"🗓️",q:"Wie gestaltest du deinen Alltag?",a:[{t:"Strukturiert, geplant, Dinge abschließen",v:"J"},{t:"Spontan, flexibel, Optionen offen halten",v:"P"}]}
+  {e:"⚡",q:"Wo bekommst du Energie?",d:"EI",a:[{t:"Bei Menschen, Gesprächen, Aktivitäten",v:"E"},{t:"Allein, in Ruhe, durch Rückzug",v:"I"}]},
+  {e:"🔭",q:"Wie nimmst du Informationen auf?",d:"SN",a:[{t:"Konkrete Fakten und Details — was ist",v:"S"},{t:"Muster, Bedeutungen, Möglichkeiten — was sein könnte",v:"N"}]},
+  {e:"⚖️",q:"Wie triffst du Entscheidungen?",d:"TF",a:[{t:"Logisch, objektiv, nach Analyse",v:"T"},{t:"Nach Werten, Gefühl, Harmonie",v:"F"}]},
+  {e:"🗓️",q:"Wie gestaltest du deinen Alltag?",d:"JP",a:[{t:"Strukturiert, geplant, Dinge abschließen",v:"J"},{t:"Spontan, flexibel, Optionen offen",v:"P"}]}
 ];
 const MQ_EXTRA = [
-  {e:"🎉",q:"Wie bist du auf Partys oder Events?",a:[{t:"Ich werde energetischer, bleibe lang, suche neue Gespräche",v:"E"},{t:"Ich bin gerne da, brauche aber danach Zeit für mich",v:"I"}]},
-  {e:"💡",q:"Was interessiert dich spontan mehr?",a:[{t:"Theorien, Konzepte, Bedeutungen hinter Dingen",v:"N"},{t:"Praktische Umsetzung, was konkret funktioniert",v:"S"}]},
-  {e:"🔥",q:"Was stört dich mehr in einer Diskussion?",a:[{t:"Wenn Argumente logisch inkonsistent sind",v:"T"},{t:"Wenn Menschen durch Entscheidungen verletzt werden",v:"F"}]},
-  {e:"📋",q:"Was trifft mehr auf dich zu?",a:[{t:"Ich plane im Voraus, Deadlines geben mir Klarheit",v:"J"},{t:"Ich lasse Dinge entstehen, arbeite oft kurz vor Deadline am besten",v:"P"}]}
+  {e:"🎉",q:"Auf Events oder Partys...",d:"EI",a:[{t:"Ich werde energetischer, suche neue Gespräche",v:"E"},{t:"Ich bin gerne da, brauche danach Zeit für mich",v:"I"}]},
+  {e:"💡",q:"Was interessiert dich spontan mehr?",d:"SN",a:[{t:"Theorien, Konzepte, Bedeutungen hinter Dingen",v:"N"},{t:"Praktische Umsetzung, was konkret funktioniert",v:"S"}]},
+  {e:"🔥",q:"Was stört dich mehr in einer Diskussion?",d:"TF",a:[{t:"Wenn Argumente logisch inkonsistent sind",v:"T"},{t:"Wenn Menschen durch Entscheidungen verletzt werden",v:"F"}]},
+  {e:"📋",q:"Unerwartete Änderungen von Plänen...",d:"JP",a:[{t:"Stören mich — ich hatte einen Plan",v:"J"},{t:"Finde ich oft interessant — neues Terrain",v:"P"}]}
+];
+const MQ_ULTRA = [
+  {e:"🌙",q:"Am Abend nach einem langen Tag...",d:"EI",a:[{t:"Ich rufe jemanden an oder gehe noch raus",v:"E"},{t:"Ich brauche Stille und Zeit nur für mich",v:"I"}]},
+  {e:"🗺️",q:"Wie triffst du große Entscheidungen?",d:"SN",a:[{t:"Ich folge meiner Intuition und dem Gesamtbild",v:"N"},{t:"Ich gehe alle konkreten Fakten und Optionen durch",v:"S"}]},
+  {e:"🤝",q:"Wenn jemand mit einem Problem zu dir kommt...",d:"TF",a:[{t:"Ich gebe direkte, praktische Lösungsvorschläge",v:"T"},{t:"Ich höre erst zu, zeige Verständnis und Mitgefühl",v:"F"}]},
+  {e:"🔄",q:"Wenn alle Optionen offenbleiben...",d:"JP",a:[{t:"Das macht mich unruhig — ich will Klarheit",v:"J"},{t:"Das fühlt sich gut an — Freiheit und Möglichkeiten",v:"P"}]}
 ];
 let MQ_ACTIVE = [], mqi = 0, mqa = {};
 
-// ═══ INSTINKT FRAGEN ═════════════════════════════════
+// ═══ INSTINCT QUESTIONS ══════════════════════
 const IQ_BASE = [
-  {e:"💞",q:"In engen Beziehungen suchst du vor allem...",a:[{t:"Tiefe Intensität, echte Verbindung, völliges Verstehen",v:"sx"},{t:"Sicherheit, Stabilität, gegenseitige Versorgung",v:"sp"},{t:"Geteilte Werte, Gemeinschaft, Teil von etwas sein",v:"so"}]},
-  {e:"🎯",q:"Deine Energie richtet sich hauptsächlich auf...",a:[{t:"Eine Person oder Sache mit voller Intensität",v:"sx"},{t:"Eigene Ressourcen, Gesundheit, materiellen Komfort",v:"sp"},{t:"Gruppen, Status, soziale Netzwerke",v:"so"}]},
-  {e:"😨",q:"Deine tiefste Angst ist...",a:[{t:"Keine echte Verbindung, Oberflächlichkeit im Leben",v:"sx"},{t:"Unsicherheit, Mangel, existenzielle Bedrohung",v:"sp"},{t:"Ausgeschlossen sein, nicht dazugehören",v:"so"}]}
+  {e:"💞",q:"In engen Beziehungen suchst du...",a:[{t:"Tiefe Intensität, echte Verbindung, vollständiges Verstehen",v:"sx"},{t:"Sicherheit, Stabilität, gegenseitige Versorgung",v:"sp"},{t:"Geteilte Werte, Gemeinschaft, Teil von etwas sein",v:"so"}]},
+  {e:"🎯",q:"Deine Energie richtet sich hauptsächlich auf...",a:[{t:"Eine Person oder Sache mit voller Intensität",v:"sx"},{t:"Eigene Ressourcen, Gesundheit, Komfort",v:"sp"},{t:"Gruppen, Status, soziale Netzwerke",v:"so"}]},
+  {e:"😨",q:"Deine tiefste Angst ist...",a:[{t:"Keine echte Verbindung, Oberflächlichkeit",v:"sx"},{t:"Unsicherheit, Mangel, existenzielle Bedrohung",v:"sp"},{t:"Ausgeschlossen sein, nicht dazugehören",v:"so"}]}
 ];
 const IQ_EXTRA = [
-  {e:"🌙",q:"Wenn du allein bist, denkst du am ehesten an...",a:[{t:"Eine bestimmte Person oder ein bestimmtes Thema das mich fesselt",v:"sx"},{t:"Meine Ressourcen, Pläne, Sicherheit",v:"sp"},{t:"Mein soziales Umfeld, wer was denkt, meinen Einfluss",v:"so"}]},
-  {e:"⚡",q:"Was energetisiert dich am meisten?",a:[{t:"Intensive Begegnungen die mich ganz fordern",v:"sx"},{t:"Komfort, gutes Essen, eigenes Zuhause",v:"sp"},{t:"Teil von etwas Größerem sein, Anerkennung in der Gruppe",v:"so"}]}
+  {e:"🌙",q:"Wenn du allein bist, denkst du an...",a:[{t:"Eine bestimmte Person oder Thema das mich fesselt",v:"sx"},{t:"Meine Ressourcen, Pläne, Sicherheit",v:"sp"},{t:"Mein soziales Umfeld, Einfluss, Community",v:"so"}]},
+  {e:"⚡",q:"Was energetisiert dich am meisten?",a:[{t:"Intensive Begegnungen die mich ganz fordern",v:"sx"},{t:"Komfort, eigenes Zuhause, Selbstfürsorge",v:"sp"},{t:"Teil von etwas Größerem sein, Anerkennung",v:"so"}]},
+  {e:"💬",q:"In Gruppen bist du meistens...",a:[{t:"Fokussiert auf ein oder zwei Gespräche die mich wirklich fesseln",v:"sx"},{t:"Ruhig beobachtend, reserviere meine Energie",v:"sp"},{t:"Aktiv vernetzt, interessiert wer was macht",v:"so"}]},
+  {e:"🔋",q:"Energie geht dir aus wenn...",a:[{t:"Verbindungen oberflächlich bleiben oder sich nichts aufbaut",v:"sx"},{t:"Meine Routinen, Gesundheit oder Ressourcen bedroht sind",v:"sp"},{t:"Ich das Gefühl habe nicht dazuzugehören oder irrelevant zu sein",v:"so"}]}
 ];
 let IQ_ACTIVE = [], iqi = 0, iqa = {sx:0,sp:0,so:0};
 
-// ═══ NAVIGATION ══════════════════════════════════════
+// ═══ NUMEROLOGY ══════════════════════════════
+const PYTH = {A:1,B:2,C:3,D:4,E:5,F:6,G:7,H:8,I:9,J:1,K:2,L:3,M:4,N:5,O:6,P:7,Q:8,R:9,S:1,T:2,U:3,V:4,W:5,X:6,Y:7,Z:8};
+const VOWELS = new Set(['A','E','I','O','U']);
+
+function reduceNum(n) {
+  while(n>9 && n!==11 && n!==22) n=String(n).split('').reduce((a,b)=>a+parseInt(b),0);
+  return n;
+}
+function nameToNum(str, onlyVowels=false, onlyConsonants=false) {
+  const letters = str.toUpperCase().replace(/[^A-Z]/g,'').split('');
+  const filtered = letters.filter(c => {
+    if(onlyVowels) return VOWELS.has(c);
+    if(onlyConsonants) return !VOWELS.has(c);
+    return true;
+  });
+  if(!filtered.length) return 0;
+  return reduceNum(filtered.reduce((s,c)=>s+(PYTH[c]||0),0));
+}
+
+// ═══ NAVIGATION ══════════════════════════════
 function go(id) {
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -450,138 +540,169 @@ function go(id) {
 }
 
 function toggleKnow(sys) {
-  const el = document.getElementById('ck-'+sys);
+  const el=document.getElementById('ck-'+sys);
   el.classList.toggle('on');
-  known[sys] = el.classList.contains('on');
+  known[sys]=el.classList.contains('on');
 }
 
 function selMode(m) {
-  mode = m;
-  document.getElementById('mode-fast').classList.toggle('sel', m==='fast');
-  document.getElementById('mode-deep').classList.toggle('sel', m==='deep');
+  mode=m;
+  ['fast','deep','ultra'].forEach(x=>document.getElementById('mode-'+x).classList.toggle('sel',x===m));
 }
 
 function startFlow() {
   ['mbti','ennea','astro','inst'].forEach(s=>{
-    known[s] = document.getElementById('ck-'+s).classList.contains('on');
+    known[s]=document.getElementById('ck-'+s).classList.contains('on');
   });
-  MQ_ACTIVE = mode==='deep' ? [...MQ_FAST,...MQ_EXTRA] : MQ_FAST;
-  IQ_ACTIVE = mode==='deep' ? [...IQ_BASE,...IQ_EXTRA] : IQ_BASE;
-  flow = ['mbti','ennea','astro','inst'];
-  fi = 0;
+  MQ_ACTIVE = mode==='ultra' ? [...MQ_FAST,...MQ_EXTRA,...MQ_ULTRA]
+             : mode==='deep'  ? [...MQ_FAST,...MQ_EXTRA]
+             : MQ_FAST;
+  IQ_ACTIVE = mode==='ultra' ? [...IQ_BASE,...IQ_EXTRA]
+             : mode==='deep'  ? [...IQ_BASE,...IQ_EXTRA.slice(0,2)]
+             : IQ_BASE;
+  if(mode==='ultra') document.getElementById('ultra-astro').style.display='block';
+  flow=['mbti','ennea','astro','inst'];
+  if(mode==='ultra') flow.splice(2,0,'name');
+  fi=0;
   next();
 }
 
 function next() {
-  if(fi >= flow.length){ go('s-load'); setTimeout(buildResult,2000); return; }
-  const sys = flow[fi++];
-  if(sys==='mbti') {
-    if(known.mbti){ initMbtiGrid(); go('s-mbti-k'); }
-    else { mqi=0; mqa={}; showMQ(); go('s-mbti-q'); }
-  } else if(sys==='ennea') {
-    initEnnea();
-    go('s-ennea');
-  } else if(sys==='astro') {
+  if(fi>=flow.length){go('s-load');setTimeout(buildResult,2200);return;}
+  const sys=flow[fi++];
+  if(sys==='mbti'){
+    if(known.mbti){initMbtiGrid();go('s-mbti-k');}
+    else{mqi=0;mqa={};showMQ();go('s-mbti-q');}
+  } else if(sys==='ennea'){
+    initEnnea();go('s-ennea');
+  } else if(sys==='name'){
+    go('s-name');
+  } else if(sys==='astro'){
     go('s-astro');
-  } else if(sys==='inst') {
-    if(known.inst){ go('s-inst-k'); }
-    else { iqi=0; iqa={sx:0,sp:0,so:0}; showIQ(); go('s-inst-q'); }
+  } else if(sys==='inst'){
+    if(known.inst){
+      if(mode==='ultra') document.getElementById('inst-secondary-known').style.display='block';
+      go('s-inst-k');
+    } else {
+      iqi=0;iqa={sx:0,sp:0,so:0};showIQ();go('s-inst-q');
+    }
   }
 }
 
-// ═══ MBTI ════════════════════════════════════════════
+// ═══ MBTI ════════════════════════════════════
 function initMbtiGrid() {
-  document.getElementById('mbti-sel-grid').innerHTML = MBTI_LIST.map(t=>
+  document.getElementById('mbti-sel-grid').innerHTML=MBTI_LIST.map(t=>
     `<div class="mi" onclick="selMbti(this,'${t}')">${t}</div>`
   ).join('');
 }
-function selMbti(el,t) {
+function selMbti(el,t){
   document.querySelectorAll('.mi').forEach(d=>d.classList.remove('sel'));
-  el.classList.add('sel'); R.mbti=t;
+  el.classList.add('sel');R.mbti=t;
 }
-function confirmMbtiKnown() {
-  if(!R.mbti){alert('Bitte MBTI-Typ wählen');return;}
-  next();
-}
-function showMQ() {
-  const tot = MQ_ACTIVE.length;
-  const q = MQ_ACTIVE[mqi];
-  document.getElementById('mq-n').textContent = mqi+1;
-  document.getElementById('mq-tot').textContent = tot;
-  document.getElementById('mbti-pf').style.width = (mqi/tot*100)+'%';
-  document.getElementById('mq-e').textContent = q.e;
-  document.getElementById('mq-q').textContent = q.q;
-  document.getElementById('mq-a').innerHTML = q.a.map(a=>
-    `<div class="card" onclick="answerMQ('${a.v}')"><div class="ct" style="font-weight:500;font-size:14px">${a.t}</div></div>`
+function confirmMbtiKnown(){if(!R.mbti){alert('Bitte MBTI-Typ wählen');return;}next();}
+function showMQ(){
+  const tot=MQ_ACTIVE.length,q=MQ_ACTIVE[mqi];
+  document.getElementById('mq-n').textContent=mqi+1;
+  document.getElementById('mq-tot').textContent=tot;
+  document.getElementById('mbti-pf').style.width=(mqi/tot*100)+'%';
+  document.getElementById('mq-e').textContent=q.e;
+  document.getElementById('mq-q').textContent=q.q;
+  document.getElementById('mq-a').innerHTML=q.a.map(a=>
+    `<div class="card" onclick="answerMQ('${a.v}','${q.d}')"><div class="ct" style="font-weight:500;font-size:13px">${a.t}</div></div>`
   ).join('');
 }
-function answerMQ(v) {
-  // For dimension pairs: fast[0,1,2,3] + extra[4,5,6,7] — map to dimension
-  const dimMap = {0:'EI',1:'SN',2:'TF',3:'JP',4:'EI',5:'SN',6:'TF',7:'JP'};
-  const dim = dimMap[mqi]||'EI';
+function answerMQ(v,dim){
   if(!mqa[dim]) mqa[dim]={};
-  mqa[dim][v] = (mqa[dim][v]||0)+1;
+  mqa[dim][v]=(mqa[dim][v]||0)+1;
   mqi++;
-  if(mqi < MQ_ACTIVE.length){ showMQ(); }
-  else {
-    // Calculate type
-    const pick = d => {
-      const o = mqa[d]||{};
-      const keys = Object.keys(o);
-      if(!keys.length) return d[0];
-      return keys.reduce((a,b)=>(o[a]||0)>=(o[b]||0)?a:b);
-    };
-    R.mbti = pick('EI')+pick('SN')+pick('TF')+pick('JP');
+  if(mqi<MQ_ACTIVE.length){showMQ();}
+  else{
+    R.mbti=['EI','SN','TF','JP'].map(d=>{
+      const o=mqa[d]||{};
+      return Object.keys(o).reduce((a,b)=>(o[a]||0)>=(o[b]||0)?a:b,d[0]);
+    }).join('');
     document.getElementById('mbti-pf').style.width='100%';
     setTimeout(next,350);
   }
 }
 
-// ═══ ENNEAGRAM ═══════════════════════════════════════
-function initEnnea() {
-  document.getElementById('ennea-list').innerHTML = ENNEA_D.map(e=>
+// ═══ ENNEAGRAM ═══════════════════════════════
+function initEnnea(){
+  document.getElementById('ennea-list').innerHTML=ENNEA_D.map(e=>
     `<div class="card" data-t="${e.t}" onclick="selEnnea(this,${e.t})">
-      <div style="display:flex;align-items:flex-start;gap:10px">
-        <div style="font-size:20px;flex-shrink:0">${e.e}</div>
-        <div><div class="ct">Typ ${e.t} – ${e.l}</div><div class="cd">${e.hint}</div></div>
-      </div>
-    </div>`
-  ).join('');
-}
-function selEnnea(el,t) {
-  document.querySelectorAll('#ennea-list .card').forEach(c=>c.classList.remove('sel'));
-  el.classList.add('sel'); R.ennea=t;
-}
-function confirmEnnea() {
-  if(!R.ennea){alert('Bitte einen Typ wählen');return;}
-  const w = document.getElementById('ennea-w').value.trim().toUpperCase();
-  if(w) R.enneaWing=w;
-  if(mode==='deep') {
-    initEnnea2(); go('s-ennea2');
-  } else {
-    next();
-  }
-}
-function initEnnea2() {
-  document.getElementById('ennea2-list').innerHTML = ENNEA_D.filter(e=>e.t!==R.ennea).map(e=>
-    `<div class="card" data-t="${e.t}" onclick="selEnnea2(this,${e.t})">
-      <div style="display:flex;align-items:flex-start;gap:10px">
+      <div style="display:flex;align-items:flex-start;gap:9px">
         <div style="font-size:18px;flex-shrink:0">${e.e}</div>
-        <div><div class="ct" style="font-size:13px">Typ ${e.t} – ${e.l}</div><div class="cd" style="font-size:12px">${e.hint}</div></div>
-      </div>
-    </div>`
+        <div><div class="ct">Typ ${e.t} – ${e.l}</div><div class="cd">${e.hint}</div></div>
+      </div></div>`
   ).join('');
 }
-function selEnnea2(el,t) {
-  document.querySelectorAll('#ennea2-list .card').forEach(c=>c.classList.remove('sel'));
-  el.classList.add('sel'); R.ennea2=t;
+function selEnnea(el,t){
+  document.querySelectorAll('#ennea-list .card').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');R.ennea=t;
 }
-function confirmEnnea2() {
+function confirmEnnea(){
+  if(!R.ennea){alert('Bitte Typ wählen');return;}
+  const w=document.getElementById('ennea-w').value.trim().toUpperCase();
+  if(w) R.enneaWing=w;
+  if(mode==='deep'||mode==='ultra'){
+    initTritype();go('s-tritype');
+  } else next();
+}
+
+// ─── TRITYPE ──────────────────────────────────
+const CENTERS = {body:[1,8,9],heart:[2,3,4],head:[5,6,7]};
+function initTritype(){
+  const primCenter = getCenter(R.ennea);
+  const remaining = Object.entries(CENTERS).filter(([k])=>k!==primCenter);
+  ['body','heart','head'].forEach(c=>{
+    const sec=document.getElementById('tritype-'+c);
+    if(!sec) return;
+    if(c===primCenter){sec.style.display='none';return;}
+    sec.style.display='block';
+    const types=CENTERS[c];
+    sec.innerHTML=`<div class="center-label">${c==='body'?'🏋️ Körper-Zentrum (1,8,9)':c==='heart'?'❤️ Herz-Zentrum (2,3,4)':'🧠 Kopf-Zentrum (5,6,7)'} — wähle einen</div>`
+      +types.map(t=>{const e=ENNEA_D.find(x=>x.t===t);return`<div class="card" data-center="${c}" data-t="${t}" onclick="selTritype(this,'${c}',${t})">
+        <div style="display:flex;align-items:flex-start;gap:9px">
+          <div style="font-size:16px">${e.e}</div>
+          <div><div class="ct" style="font-size:13px">Typ ${t} – ${e.l}</div><div class="cd" style="font-size:11px">${e.hint}</div></div>
+        </div></div>`}).join('');
+  });
+}
+function selTritype(el,center,t){
+  document.querySelectorAll(`#tritype-${center} .card`).forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  if(!R.tritype) R.tritype={};
+  R.tritype[center]=t;
+}
+function getCenter(t){return [1,8,9].includes(t)?'body':[2,3,4].includes(t)?'heart':'head';}
+function confirmTritype(){
   next();
 }
 
-// ═══ ASTROLOGY ═══════════════════════════════════════
-function calcZodiac(d) {
+// ═══ NAME / NUMEROLOGY ════════════════════════
+function calcNamePreview(){
+  const first=document.getElementById('name-first').value.trim();
+  const last=document.getElementById('name-last').value.trim();
+  if(!first&&!last){alert('Bitte Name eingeben');return;}
+  const full=first+' '+last;
+  const expr=nameToNum(full);
+  const soul=nameToNum(full,true,false);
+  const pers=nameToNum(full,false,true);
+  const pr=document.getElementById('num-preview');
+  pr.innerHTML=`🔢 <b>Ausdruckszahl (Expression):</b> ${expr} – ${EXPNUM[expr]?.l||expr}<br>
+    💜 <b>Seelenzahl (Soul Urge):</b> ${soul} – ${SOULNUM[soul]?.l||soul}<br>
+    🎭 <b>Persönlichkeitszahl:</b> ${pers}`;
+  pr.style.display='block';
+  R._nameExpr=expr;R._nameSoul=soul;R._namePers=pers;
+}
+function confirmName(){
+  calcNamePreview();
+  next();
+}
+function skipName(){next();}
+
+// ═══ ASTROLOGY ════════════════════════════════
+function calcZodiac(d){
   const m=d.getMonth()+1,day=d.getDate();
   if((m==3&&day>=21)||(m==4&&day<=19))return'Widder';
   if((m==4&&day>=20)||(m==5&&day<=20))return'Stier';
@@ -596,334 +717,369 @@ function calcZodiac(d) {
   if((m==1&&day>=20)||(m==2&&day<=18))return'Wassermann';
   return'Fische';
 }
-function calcChinese(y) {
-  return {animal:CH_ANIMAL[(((y-2020)%12)+12)%12], element:CH_ELEM[((Math.floor((y-2020)/2)%5)+5)%5]};
+function calcRising(sunSign, birthHour){
+  // Simplified: ascendant rotates ~1 sign every 2h; at ~6AM the ascending sign ≈ sun sign
+  const sunIdx=ZODIAC_LIST.indexOf(sunSign);
+  if(sunIdx===-1||birthHour===null) return null;
+  const hoursSinceRise=birthHour-6;
+  const signsElapsed=Math.round(hoursSinceRise/2);
+  return ZODIAC_LIST[((sunIdx+signsElapsed)%12+12)%12];
 }
-function calcLP(d) {
+function calcChinese(y){return{animal:CH_ANIMAL[(((y-2020)%12)+12)%12],element:CH_ELEM[((Math.floor((y-2020)/2)%5)+5)%5]};}
+function calcLP(d){
   let n=`${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`.split('').reduce((a,b)=>a+parseInt(b),0);
   while(n>9&&n!==11&&n!==22) n=String(n).split('').reduce((a,b)=>a+parseInt(b),0);
   return n;
 }
-function previewBday() {
+function previewBday(){
   const v=document.getElementById('bday').value;
-  if(!v)return;
-  const d=new Date(v+'T12:00:00');
-  const sun=calcZodiac(d),ch=calcChinese(d.getFullYear()),lp=calcLP(d);
-  const pr=document.getElementById('bday-preview');
-  pr.innerHTML=`☀️ <b>Sonne:</b> ${ZODIAC[sun].e} ${sun} (${ZODIAC[sun].el})<br>🐉 <b>Chinesisch:</b> ${ch.element}-${ch.animal}<br>🔢 <b>Lebenspfad:</b> ${lp} – ${LP[lp]?.l||lp}`;
-  pr.style.display='block';
+  if(!v) return;
+  const d=new Date(v+'T12:00:00'),sun=calcZodiac(d),ch=calcChinese(d.getFullYear()),lp=calcLP(d);
+  let html=`☀️ <b>Sonne:</b> ${ZODIAC[sun].e} ${sun} (${ZODIAC[sun].el})<br>🐉 <b>Chinesisch:</b> ${ch.element}-${ch.animal}<br>🔢 <b>Lebenspfad:</b> ${lp} – ${LP[lp]?.l||lp}`;
+  if(mode==='ultra'){
+    const bt=document.getElementById('btime')?.value;
+    if(bt){const h=parseInt(bt.split(':')[0]);const r=calcRising(sun,h);if(r) html+=`<br>↗️ <b>Aszendent (ca.):</b> ${ZODIAC[r].e} ${r}`;}
+  }
+  const pr=document.getElementById('bday-preview');pr.innerHTML=html;pr.style.display='block';
 }
-function confirmAstro() {
+function confirmAstro(){
   const v=document.getElementById('bday').value;
   if(!v){alert('Bitte Geburtsdatum eingeben');return;}
   const d=new Date(v+'T12:00:00');
-  R.sun=calcZodiac(d); R.ch=calcChinese(d.getFullYear()); R.lp=calcLP(d);
+  R.sun=calcZodiac(d);R.ch=calcChinese(d.getFullYear());R.lp=calcLP(d);
   const moon=document.getElementById('moon-inp').value.trim();
   if(moon) R.moon=moon.charAt(0).toUpperCase()+moon.slice(1);
+  if(mode==='ultra'){
+    const manual=document.getElementById('rising-inp')?.value.trim();
+    if(manual){R.rising=manual.charAt(0).toUpperCase()+manual.slice(1);}
+    else{
+      const bt=document.getElementById('btime')?.value;
+      if(bt){const h=parseInt(bt.split(':')[0]);const r=calcRising(R.sun,h);if(r) R.rising=r;}
+    }
+  }
   next();
 }
 
-// ═══ INSTINCT ════════════════════════════════════════
-function selInstK(el) {
-  document.querySelectorAll('#s-inst-k .card').forEach(c=>c.classList.remove('sel'));
-  el.classList.add('sel'); R.inst=el.dataset.v;
+// ═══ INSTINCT ═════════════════════════════════
+function selInstK(el){
+  document.querySelectorAll('#s-inst-k .card[data-v]').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');R.inst=el.dataset.v;
 }
-function confirmInstK() {
-  if(!R.inst){alert('Bitte Instinkt wählen');return;}
-  next();
+function selInstK2(el){
+  document.querySelectorAll('#s-inst-k .card[data-v2]').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');R.inst2=el.dataset.v2;
 }
-function showIQ() {
-  const tot=IQ_ACTIVE.length;
-  const q=IQ_ACTIVE[iqi];
+function confirmInstK(){if(!R.inst){alert('Bitte Instinkt wählen');return;}next();}
+function showIQ(){
+  const tot=IQ_ACTIVE.length,q=IQ_ACTIVE[iqi];
   document.getElementById('iq-n').textContent=iqi+1;
   document.getElementById('iq-tot').textContent=tot;
   document.getElementById('inst-pf').style.width=(iqi/tot*100)+'%';
   document.getElementById('iq-e').textContent=q.e;
   document.getElementById('iq-q').textContent=q.q;
   document.getElementById('iq-a').innerHTML=q.a.map(a=>
-    `<div class="card" onclick="answerIQ('${a.v}')"><div class="ct" style="font-weight:500;font-size:14px">${a.t}</div></div>`
+    `<div class="card" onclick="answerIQ('${a.v}')"><div class="ct" style="font-weight:500;font-size:13px">${a.t}</div></div>`
   ).join('');
 }
-function answerIQ(v) {
-  iqa[v]++; iqi++;
-  if(iqi<IQ_ACTIVE.length){ showIQ(); }
-  else {
-    R.inst=Object.entries(iqa).sort((a,b)=>b[1]-a[1])[0][0];
+function answerIQ(v){
+  iqa[v]++;iqi++;
+  if(iqi<IQ_ACTIVE.length){showIQ();}
+  else{
+    const sorted=Object.entries(iqa).sort((a,b)=>b[1]-a[1]);
+    R.inst=sorted[0][0];
+    if(mode==='ultra'&&sorted[1][1]>0) R.inst2=sorted[1][0];
     document.getElementById('inst-pf').style.width='100%';
     setTimeout(next,350);
   }
 }
 
-// ═══════════════════════════════════════════════════════
-// RESULT GENERATION
-// ═══════════════════════════════════════════════════════
-function buildResult() {
-  const mbti = R.mbti ? MBTI[R.mbti] : null;
-  const ennea = R.ennea ? ENNEA_D.find(e=>e.t===R.ennea) : null;
-  const ennea2 = R.ennea2 ? ENNEA_D.find(e=>e.t===R.ennea2) : null;
-  const sun = R.sun ? ZODIAC[R.sun] : null;
-  const lp = R.lp ? LP[R.lp] : null;
-  const inst = R.inst ? INST[R.inst] : null;
+// ═══════════════════════════════════════════════════
+// RESULT BUILDER
+// ═══════════════════════════════════════════════════
+function buildResult(){
+  const mbti=R.mbti?MBTI[R.mbti]:null;
+  const ennea=R.ennea?ENNEA_D.find(e=>e.t===R.ennea):null;
+  const sun=R.sun?ZODIAC[R.sun]:null;
+  const lp=R.lp?LP[R.lp]:null;
+  const inst=R.inst?INST[R.inst]:null;
+  const inst2=R.inst2?INST[R.inst2]:null;
 
-  // TYPE BADGES
-  const badges = [];
-  if(R.mbti && mbti) badges.push({l:R.mbti, c:mbti.c});
-  if(R.ennea && ennea) badges.push({l:(R.enneaWing?`${R.ennea}${R.enneaWing}`:`Typ ${R.ennea}`), c:'#b45309'});
-  if(R.ennea2) badges.push({l:`Typ ${R.ennea2}`, c:'#92400e'});
-  if(R.sun && sun) badges.push({l:`${sun.e} ${R.sun}`, c:'#0e7490'});
-  if(R.moon) badges.push({l:`🌙 ${R.moon}`, c:'#4f46e5'});
-  if(R.ch) badges.push({l:`${R.ch.element}-${R.ch.animal}`, c:'#15803d'});
-  if(R.lp) badges.push({l:`LP ${R.lp}`, c:'#7c3aed'});
-  if(R.inst && inst) badges.push({l:`${inst.e} ${R.inst.toUpperCase()}`, c:'#9a3412'});
+  // BADGES
+  const bgs=[];
+  if(R.mbti&&mbti) bgs.push({l:R.mbti,c:mbti.c});
+  if(R.ennea&&ennea) bgs.push({l:(R.enneaWing?`${R.ennea}${R.enneaWing}`:`Typ ${R.ennea}`),c:'#b45309'});
+  if(R.tritype){
+    const tc=Object.values(R.tritype).sort();
+    if(tc.length) bgs.push({l:`TT: ${R.ennea}-${tc.join('-')}`,c:'#92400e'});
+  }
+  if(R.sun&&sun) bgs.push({l:`${sun.e} ${R.sun}`,c:'#0e7490'});
+  if(R.rising) bgs.push({l:`↗️${R.rising}`,c:'#0c4a6e'});
+  if(R.moon) bgs.push({l:`🌙${R.moon}`,c:'#4f46e5'});
+  if(R.ch) bgs.push({l:`${R.ch.element}-${R.ch.animal}`,c:'#15803d'});
+  if(R.lp) bgs.push({l:`LP${R.lp}`,c:'#7c3aed'});
+  if(R._nameExpr) bgs.push({l:`Expr.${R._nameExpr}`,c:'#6d28d9'});
+  if(R._nameSoul) bgs.push({l:`Soul${R._nameSoul}`,c:'#7e22ce'});
+  if(R.inst&&inst) bgs.push({l:`${inst.e}${R.inst.toUpperCase()}`,c:'#9a3412'});
+  if(R.inst2) bgs.push({l:`${INST[R.inst2].e}${R.inst2}`,c:'#7c2d12'});
 
-  document.getElementById('r-badges').innerHTML = badges.map(b=>
+  document.getElementById('r-badges').innerHTML=bgs.map(b=>
     `<span class="tb" style="background:${b.c}22;color:${b.c};border:1px solid ${b.c}44">${b.l}</span>`
   ).join('');
-  document.getElementById('r-badge').textContent = inst?.e||'🧬';
+  document.getElementById('r-badge').textContent=inst?.e||'🧬';
 
-  let html = '';
+  let html='';
 
-  // ─── 1. ÜBERSICHT ────────────────────────────────────
-  html += sec('🧬 Persönlichkeitsübersicht', genOverview(R, mbti, ennea, ennea2, sun, lp, inst));
+  // 1. OVERVIEW
+  html+=sec('🧬 Persönlichkeitsübersicht',genOverview(R,mbti,ennea,sun,lp,inst,inst2));
 
-  // ─── 2. KARRIERE ─────────────────────────────────────
-  html += sec('💼 Karriere & Arbeit', genCareer(R, mbti, ennea, lp, inst));
+  // 2. COGNITIVE FUNCTIONS (ultra only)
+  if(mode==='ultra'&&mbti&&mbti.cog){
+    html+=genCogFuncs(R,mbti);
+  }
 
-  // ─── 3. ROMANTISCHE BEZIEHUNGEN ──────────────────────
-  html += sec('💞 Romantische Beziehungen', genRelationship(R, mbti, ennea, inst));
+  // 3. TRITYPE (deep + ultra)
+  if((mode==='deep'||mode==='ultra')&&R.tritype&&ennea){
+    html+=genTritypeSection(R,ennea);
+  }
 
-  // ─── 4. FREUNDSCHAFTEN ───────────────────────────────
-  html += sec('👥 Freundschaften', genFriendships(R, mbti, ennea, inst));
+  // 4. CAREER
+  html+=sec('💼 Karriere & Arbeit',genCareer(R,mbti,ennea,lp,inst));
 
-  // ─── 5. FAMILIE ──────────────────────────────────────
-  html += sec('👨‍👩‍👧 Familie', genFamily(R, mbti, ennea, inst));
+  // 5. RELATIONSHIPS
+  html+=sec('💞 Romantische Beziehungen',genRelationship(R,mbti,ennea,inst));
 
-  // ─── 6. PERSÖNLICHES WACHSTUM ────────────────────────
-  html += sec('📈 Persönliches Wachstum', genGrowth(R, mbti, ennea, lp));
+  // 6. FRIENDSHIPS
+  html+=sec('👥 Freundschaften',genFriendships(R,mbti,ennea,inst));
 
-  // ─── 7. STRESS & HERAUSFORDERUNGEN ───────────────────
-  html += sec('⚡ Stressverhalten & Schattenseiten', genStress(R, mbti, ennea, inst));
+  // 7. FAMILY
+  html+=sec('👨‍👩‍👧 Familie',genFamily(R,mbti,ennea,inst));
 
-  // ─── STÄRKEN ──────────────────────────────────────────
-  const sts = uniq([...(mbti?.st||[]),...(ennea?.st||[]).slice(0,2),...(lp?.st||[]).slice(0,1),...(inst?.st||[]).slice(0,2)]).slice(0,9);
-  html += `<div class="rs"><h3>💪 Stärken</h3><div class="tlist">${sts.map(t=>`<span class="t g">${t}</span>`).join('')}</div></div>`;
+  // 8. GROWTH
+  html+=sec('📈 Persönliches Wachstum',genGrowth(R,mbti,ennea,lp));
 
-  // ─── SCHATTENSEITEN ───────────────────────────────────
-  const shs = uniq([...(mbti?.sh||[]),...(ennea?.sh||[]).slice(0,2),...(inst?.sh||[]).slice(0,1)]).slice(0,7);
-  html += `<div class="rs"><h3>🌑 Schattenseiten</h3><div class="tlist">${shs.map(t=>`<span class="t r">${t}</span>`).join('')}</div></div>`;
+  // 9. STRESS
+  html+=sec('⚡ Stressverhalten & Schattenseiten',genStress(R,mbti,ennea,inst));
 
-  document.getElementById('r-content').innerHTML = html;
+  // 10. NUMEROLOGY DEEP (ultra only)
+  if(mode==='ultra'&&(R._nameExpr||R._nameSoul)){
+    html+=genNumDeep(R);
+  }
+
+  // 11. ASTROLOGY DEEP (ultra only)
+  if(mode==='ultra'&&(R.rising||R.ch)){
+    html+=genAstroDeep(R,sun);
+  }
+
+  // 12. STRENGTHS
+  const sts=uniq([...(mbti?.st||[]),...(ennea?.st||[]).slice(0,2),...(lp?.st||[]).slice(0,1),...(inst?.st||[]).slice(0,2)]).slice(0,9);
+  html+=`<div class="rs"><h3>💪 Stärken</h3><div class="tlist">${sts.map(t=>`<span class="t g">${t}</span>`).join('')}</div></div>`;
+
+  // 13. SHADOWS
+  const shs=uniq([...(mbti?.sh||[]),...(ennea?.sh||[]).slice(0,2),...(inst?.sh||[]).slice(0,1)]).slice(0,7);
+  html+=`<div class="rs"><h3>🌑 Schattenseiten</h3><div class="tlist">${shs.map(t=>`<span class="t r">${t}</span>`).join('')}</div></div>`;
+
+  document.getElementById('r-content').innerHTML=html;
   go('s-result');
 }
 
-function sec(title, content) {
-  return `<div class="rs"><h3>${title}</h3><p>${content}</p></div>`;
+function sec(title,content){
+  return`<div class="rs"><h3>${title}</h3><p>${content}</p></div>`;
 }
-function uniq(a) { return a.filter((v,i,s)=>s.indexOf(v)===i); }
+function uniq(a){return a.filter((v,i,s)=>s.indexOf(v)===i);}
 
-// ─── OVERVIEW ─────────────────────────────────────────
-function genOverview(R, mbti, ennea, ennea2, sun, lp, inst) {
-  const parts = [];
+// ─── COGNITIVE FUNCTIONS ──────────────────────
+function genCogFuncs(R,mbti){
+  const [d,a,t,i]=mbti.cog;
+  const funcLabel={
+    Ni:"Ni – Intuitives Denken (innen)",Ti:"Ti – Analytisches Denken (innen)",Fi:"Fi – Fühlen (innen)",Si:"Si – Erfahrungswahrnehmung (innen)",
+    Ne:"Ne – Intuition (außen)",Te:"Te – Strukturiertes Denken (außen)",Fe:"Fe – Soziales Fühlen (außen)",Se:"Se – Sinneswahrnehmung (außen)"
+  };
+  const html=`
+    <div class="rs">
+      <h3>⚙️ Kognitive Funktionen · ${R.mbti}</h3>
+      <div class="cog-stack">
+        <div style="text-align:center"><div class="cog dom">${d}</div><div class="cog-label">Dominant</div></div>
+        <div style="text-align:center"><div class="cog aux">${a}</div><div class="cog-label">Hilfsfunktion</div></div>
+        <div style="text-align:center"><div class="cog ter">${t}</div><div class="cog-label">Tertiär</div></div>
+        <div style="text-align:center"><div class="cog inf">${i}</div><div class="cog-label">Minderwertig</div></div>
+      </div>
+      <div class="tlist" style="margin-top:10px">
+        <span class="t b">${funcLabel[d]||d}</span>
+        <span class="t b">${funcLabel[a]||a}</span>
+        <span class="t b">${funcLabel[t]||t}</span>
+        <span class="t r">${funcLabel[i]||i} ← blinder Fleck</span>
+      </div>
+      <p style="margin-top:10px">${mbti.cogDesc}</p>
+    </div>`;
+  return html;
+}
 
-  // Core combination
-  const eDesc = {1:"prinzipientreue",2:"warmherzige",3:"ehrgeizige",4:"tiefgründige",5:"analytische",6:"loyale",7:"enthusiastische",8:"dominante",9:"harmonische"};
-  const iDesc = {sx:"intensive, magnetische",sp:"stabile, selbsterhaltende",so:"soziale, einflussreiche"};
-  const mbtiCog = R.mbti ? {NT:"analytisch-strategisch",NF:"visionär-empathisch",ST:"pragmatisch-strukturiert",SF:"fürsorglich-praktisch"}[R.mbti[1]+R.mbti[2]] : "";
-
-  let p1 = "Zusammengefasst entsteht das Bild";
-  if(ennea && inst) p1 += ` einer <b>${eDesc[R.ennea]||""} und ${iDesc[R.inst]||""} Persönlichkeit</b>`;
-  else if(ennea) p1 += ` einer <b>${eDesc[R.ennea]||""} Persönlichkeit</b>`;
-  if(mbtiCog) p1 += `, die ${mbtiCog} denkt und handelt`;
-  if(sun) {
-    const elF = {Feuer:" — dazu kommt feurige Intensität und Ausstrahlungskraft",Wasser:" — emotionale Tiefe und starke Intuition ergänzen das Bild",Luft:" — Flexibilität und kommunikative Intelligenz runden das Profil ab",Erde:" — Erdung, Beständigkeit und Pragmatismus geben Stabilität"}[sun.el];
-    if(elF) p1 += elF;
+// ─── TRITYPE ──────────────────────────────────
+function genTritypeSection(R,ennea){
+  const primC=getCenter(R.ennea);
+  const types=[R.ennea];
+  if(R.tritype){
+    ['body','heart','head'].forEach(c=>{if(c!==primC&&R.tritype[c]) types.push(R.tritype[c]);});
   }
+  if(types.length<2) return '';
+  const typeNames=types.map(t=>ENNEA_D.find(e=>e.t===t)?.l||t);
+  const allTr=types.flatMap(t=>ENNEA_D.find(e=>e.t===t)?.tr?.slice(0,2)||[]);
+  return`<div class="rs"><h3>🔺 Tritype · ${types.join('-')}</h3>
+    <p>Dein Tritype <b>${types.join('-')}</b> verbindet: ${typeNames.join(' + ')}. Das kombiniert ${allTr.join(', ')}. Diese drei Zentren — Körper, Herz und Kopf — zeigen welche Energie du instinktiv, emotional und kognitiv einsetzt.</p>
+    <div class="tlist">${types.map(t=>{const e=ENNEA_D.find(x=>x.t===t);return`<span class="t p">${e?.e||''} ${getCenter(t)}: Typ ${t} ${e?.l||''}</span>`;}).join('')}</div>
+  </div>`;
+}
+
+// ─── OVERVIEW ─────────────────────────────────
+function genOverview(R,mbti,ennea,sun,lp,inst,inst2){
+  const parts=[];
+  const eD={1:"prinzipientreue",2:"warmherzige",3:"ehrgeizige",4:"tiefgründige",5:"analytische",6:"loyale",7:"enthusiastische",8:"dominante",9:"harmonische"};
+  const iD={sx:"intensive, magnetische",sp:"stabile, selbsterhaltende",so:"soziale, einflussreiche"};
+  const cog=R.mbti?{NT:"analytisch-strategisch",NF:"visionär-empathisch",ST:"pragmatisch-strukturiert",SF:"fürsorglich-praktisch"}[R.mbti[1]+R.mbti[2]]:"";
+
+  let p1="Zusammengefasst entsteht das Bild";
+  if(ennea&&inst) p1+=` einer <b>${eD[R.ennea]||""} und ${iD[R.inst]||""} Persönlichkeit</b>`;
+  else if(ennea) p1+=` einer <b>${eD[R.ennea]||""} Persönlichkeit</b>`;
+  if(cog) p1+=`, die ${cog} denkt und handelt`;
+  if(sun){const elF={Feuer:" — dazu kommt feurige Intensität und Ausstrahlung",Wasser:" — emotionale Tiefe und starke Intuition ergänzen das Bild",Luft:" — Flexibilität und kommunikative Stärke runden das Profil ab",Erde:" — Erdung, Beständigkeit und Pragmatismus geben Stabilität"}[sun.el];if(elF) p1+=elF;}
   parts.push(p1+'.');
 
-  // Wing description
-  if(ennea && R.enneaWing) {
-    const wkey = 'w'+R.enneaWing.replace('W','').toLowerCase();
-    const wdesc = ennea.wing?.[wkey];
-    if(wdesc) parts.push(`Der ${R.enneaWing}-Wing macht dich ${wdesc}.`);
+  if(ennea&&R.enneaWing){
+    const wkey='w'+R.enneaWing.replace('W','').toLowerCase();
+    const wd=ennea.wing?.[wkey];if(wd) parts.push(`Der ${R.enneaWing}-Wing macht dich ${wd}.`);
   }
-
-  // Secondary type
-  if(ennea2) parts.push(`Als Sekundärtyp ${R.ennea2} (${ennea2.l}) zeigst du in bestimmten Kontexten auch ${ennea2.tr.slice(0,2).join(' und ')} — besonders wenn du dich sicher oder unter Druck fühlst.`);
-
-  // Life path
-  if(lp) parts.push(`Dein Lebenspfad ${R.lp} (${lp.l}) deutet darauf hin, dass ${lp.tr[0]} und ${lp.tr[1]||lp.tr[0]} zentrale Themen deines Weges sind — ${lp.d}`);
-
-  // Chinese
-  if(R.ch) parts.push(`Als ${R.ch.element}-${R.ch.animal} bringst du eine zusätzliche Schicht von Energie mit: ${R.ch.element === 'Feuer' ? 'Leidenschaft und Intensität' : R.ch.element === 'Wasser' ? 'Intuition und Flexibilität' : R.ch.element === 'Holz' ? 'Wachstum und Kreativität' : R.ch.element === 'Metall' ? 'Entschlossenheit und Struktur' : 'Beständigkeit und Verlässlichkeit'}.`);
+  if(inst2) parts.push(`Dein sekundärer Instinkt (${R.inst2?.toUpperCase()}) bedeutet: ${inst2.tr.slice(0,2).join(' und ')} spielen nach Intensität eine starke zweite Rolle.`);
+  if(lp) parts.push(`Lebenspfad ${R.lp} (${lp.l}): ${lp.d}`);
+  if(R.ch) parts.push(`Als ${R.ch.element}-${R.ch.animal} trägst du zusätzlich ${R.ch.element==='Feuer'?'Leidenschaft und Intensität':R.ch.element==='Wasser'?'Intuition und Flexibilität':R.ch.element==='Holz'?'Wachstum und Kreativität':R.ch.element==='Metall'?'Entschlossenheit und Struktur':'Beständigkeit und Verlässlichkeit'} in dir.`);
 
   return parts.join(' ');
 }
 
-// ─── KARRIERE ─────────────────────────────────────────
-function genCareer(R, mbti, ennea, lp, inst) {
-  const parts = [];
-  const isE = R.mbti?.startsWith('E');
-  const isN = R.mbti?.[1]==='N';
-  const isT = R.mbti?.[2]==='T';
-  const isJ = R.mbti?.[3]==='J';
-
-  // Work environment
-  if(mbti) {
-    parts.push(`Du arbeitest am besten in ${mbti.work}. ${isE?'Als extrovertierter Typ tankt dich der Austausch mit anderen auf.':'Als introvertierter Typ brauchst du Phasen konzentrierter, ungestörter Arbeit.'} ${isJ?'Klare Ziele und Strukturen helfen dir, dein volles Potenzial abzurufen.':'Zu viel Struktur und Kontrolle blockieren dich — du brauchst Freiraum zum Denken.'}`);
-  }
-
-  // Enneagram work motivation
+// ─── CAREER ───────────────────────────────────
+function genCareer(R,mbti,ennea,lp,inst){
+  const parts=[];
+  const isE=R.mbti?.startsWith('E'),isJ=R.mbti?.[3]==='J';
+  if(mbti) parts.push(`Du arbeitest am besten in ${mbti.work}. ${isE?'Als extrovertierter Typ gibt dir Austausch mit anderen Energie.':'Als introvertierter Typ brauchst du Phasen konzentrierter, ungestörter Arbeit.'} ${isJ?'Klare Ziele und Strukturen bringen dein Potenzial voll zum Vorschein.':'Zu viel Struktur und Kontrolle blockieren dich — du brauchst Freiraum.'}`);
   if(ennea) parts.push(ennea.work);
-
-  // Instinct at work
   if(inst) parts.push(inst.work);
-
-  // Life path career
-  if(lp) parts.push(`Dein Lebenspfad ${R.lp} zeigt: ${lp.d}`);
-
+  if(lp) parts.push(lp.d);
   return parts.join(' ');
 }
 
-// ─── BEZIEHUNGEN ──────────────────────────────────────
-function genRelationship(R, mbti, ennea, inst) {
-  const parts = [];
-  const isF = R.mbti?.[2]==='F';
-  const isI = R.mbti?.startsWith('I');
-
-  // Instinct base
+// ─── RELATIONSHIPS ────────────────────────────
+function genRelationship(R,mbti,ennea,inst){
+  const parts=[];
+  const isF=R.mbti?.[2]==='F',isI=R.mbti?.startsWith('I');
   if(inst) parts.push(inst.rel);
-
-  // Enneagram relationship style
   if(ennea) parts.push(ennea.rel);
-
-  // MBTI emotional style
-  if(mbti) {
-    if(isF) parts.push(`Als fühlend-orientierter Typ (${R.mbti?.[2]==='F'?'F':'T'}) sind Harmonie und emotionale Verbindung zentral — du investierst tief in Beziehungen und erwartest Gegenseitigkeit.`);
-    else parts.push(`Als analytisch denkender Typ (T) drückst du Liebe oft durch Handlungen aus, nicht durch Worte — das kann missverstanden werden, ist aber genauso tief.`);
-    if(isI) parts.push(`Du öffnest dich langsam — aber wer dein Vertrauen gewinnt, bekommt eine Tiefe der Verbindung, die die meisten Menschen nie erleben.`);
+  if(mbti){
+    if(isF) parts.push(`Als F-Typ sind emotionale Verbindung und Harmonie zentral — du investierst tief und erwartest Gegenseitigkeit.`);
+    else parts.push(`Als T-Typ drückst du Liebe oft durch Handlungen und Loyalität aus, nicht durch Worte — das ist genauso tief, nur anders.`);
+    if(isI) parts.push(`Du öffnest dich langsam — aber wer dein Vertrauen gewinnt, erlebt eine Verbindungstiefe, die die meisten Menschen nicht kennen.`);
   }
-
   return parts.join(' ');
 }
 
-// ─── FREUNDSCHAFTEN ───────────────────────────────────
-function genFriendships(R, mbti, ennea, inst) {
-  const parts = [];
-  const isE = R.mbti?.startsWith('E');
-
-  if(isE !== undefined) {
-    parts.push(isE
-      ? `Du hast ein breites soziales Netzwerk und knüpfst leicht neue Verbindungen. ${mbti?.social||''}`
-      : `Du pflegst ${mbti?.social||'wenige, aber tiefe Freundschaften'}. Quantität interessiert dich weniger als Qualität.`
-    );
-  }
-
+// ─── FRIENDSHIPS ──────────────────────────────
+function genFriendships(R,mbti,ennea,inst){
+  const parts=[];
+  const isE=R.mbti?.startsWith('E');
+  if(mbti) parts.push(isE?`Du hast ein breites Netzwerk und knüpfst leicht neue Verbindungen. ${mbti.social}.`:`Du pflegst ${mbti.social}. Quantität interessiert dich weniger als Qualität.`);
   if(inst) parts.push(inst.social||'');
-
-  if(ennea) {
-    const fMap = {
-      1:"Du bist ein verlässlicher, ehrlicher Freund — du sagst, was du denkst, auch wenn es unbequem ist.",
-      2:"Du bist der Freund, der immer da ist — lerne auch zu empfangen, nicht nur zu geben.",
-      3:"Du kannst Freundschaften manchmal vernachlässigen wenn du busy bist — priorisiere Verbindungen bewusst.",
-      4:"Du bist ein tiefer, intensiver Freund — aber Neid oder das Gefühl nicht verstanden zu werden kann Freundschaften belasten.",
-      5:"Einmal als Freund akzeptiert, bist du überraschend loyal und großzügig mit deinem Wissen.",
-      6:"Du bist der zuverlässigste Freund, den man haben kann — in einer Krise bist du der erste, der anruft.",
-      7:"Du bist der Freund, der das Leben aufleben lässt — Abenteuer, Ideen, Energie ohne Ende.",
-      8:"Du bist ein protektiver, intensiver Freund — wer deinen inneren Kreis betritt, hat deine Loyalität für immer.",
-      9:"Du bist der ausgleichende, geduldige Freund — der, bei dem man sich immer willkommen fühlt."
-    };
-    parts.push(fMap[R.ennea]||'');
-  }
-
+  const fm={1:"Du bist der ehrliche Freund, der sagt was er denkt — auch wenn es unbequem ist.",2:"Du bist der Freund, der immer da ist — lerne auch zu empfangen.",3:"Du kannst Freundschaften vernachlässigen wenn du busy bist — priorisiere Verbindungen bewusst.",4:"Du bist ein tiefer, intensiver Freund — aber Neid oder das Gefühl nicht verstanden zu werden kann Verbindungen belasten.",5:"Einmal als Freund akzeptiert, bist du überraschend loyal und großzügig mit deinem Wissen.",6:"Du bist der zuverlässigste Freund, den man haben kann — in einer Krise bist du der Erste, der anruft.",7:"Du bist der Freund der das Leben aufleben lässt — Abenteuer und Energie ohne Ende.",8:"Wer deinen inneren Kreis betritt, hat deine Loyalität für immer. Du schützt fierce.",9:"Du bist der ausgleichende, geduldige Freund — bei dem man sich immer willkommen fühlt."};
+  if(ennea) parts.push(fm[R.ennea]||'');
   return parts.filter(Boolean).join(' ');
 }
 
-// ─── FAMILIE ──────────────────────────────────────────
-function genFamily(R, mbti, ennea, inst) {
-  const parts = [];
-
+// ─── FAMILY ───────────────────────────────────
+function genFamily(R,mbti,ennea,inst){
+  const parts=[];
   if(inst) parts.push(inst.family||'');
-
-  if(ennea) {
-    const famMap = {
-      1:"In der Familie trägst du oft Verantwortung und hast hohe Erwartungen — an dich und andere.",
-      2:"Du bist das emotionale Zentrum deiner Familie — der, der sich kümmert und zusammenhält.",
-      3:"Familie kann Druck bedeuten — das Bedürfnis zu zeigen, dass du erfolgreich bist.",
-      4:"Deine Familiengeschichte hat dich geprägt. Tiefe Auseinandersetzung damit ist Teil deines Weges.",
-      5:"Du brauchst auch in der Familie Abstand und Rückzug — das ist keine Ablehnung, sondern Selbsterhalt.",
-      6:"Familiäre Loyalität ist für dich heilig — du weißt, wer verlässlich ist und wer nicht.",
-      7:"Du bringst Lebendigkeit in deine Familie — und versuchst manchmal, schwierige Emotionen mit Aktivität zu überdecken.",
-      8:"Du beschützt deine Familie fierce — zeige ihnen auch deine verletzliche Seite.",
-      9:"Du bist der Friedenstifter in der Familie — lerne auch eigene Bedürfnisse zu äußern."
-    };
-    parts.push(famMap[R.ennea]||'');
-  }
-
-  if(mbti) {
-    const isJ = R.mbti?.[3]==='J';
-    parts.push(isJ
-      ? "Klare Strukturen und Traditionen geben dir in der Familie Halt."
-      : "Du bringst Spontanität und Flexibilität in dein Familienleben."
-    );
-  }
-
+  const fm={1:"In der Familie trägst du oft Verantwortung und hast hohe Erwartungen — an dich und andere.",2:"Du bist das emotionale Zentrum deiner Familie — der, der sich kümmert und zusammenhält.",3:"Familie kann Erfolgs-Erwartungen bedeuten — zeige auch deine echte Seite, nicht nur deine Leistung.",4:"Deine Familiengeschichte hat dich tief geprägt. Tiefe Auseinandersetzung damit ist Teil deines Weges.",5:"Du brauchst auch in der Familie Abstand und Rückzug — das ist keine Ablehnung, sondern Selbsterhalt.",6:"Familiäre Loyalität ist für dich heilig — du weißt genau wer verlässlich ist und wer nicht.",7:"Du bringst Lebendigkeit in die Familie — und versuchst manchmal schwierige Emotionen mit Aktivität zu überdecken.",8:"Du beschützt deine Familie fierce — zeige ihnen auch deine verletzliche Seite.",9:"Du bist der Friedensstifter in der Familie — lerne auch eigene Bedürfnisse zu äußern."};
+  if(ennea) parts.push(fm[R.ennea]||'');
+  if(mbti) parts.push(R.mbti?.[3]==='J'?'Klare Strukturen und Traditionen geben dir Halt.':'Du bringst Spontanität und Flexibilität in dein Familienleben.');
   return parts.filter(Boolean).join(' ');
 }
 
-// ─── WACHSTUM ─────────────────────────────────────────
-function genGrowth(R, mbti, ennea, lp) {
-  const parts = [];
-
-  if(ennea) {
-    parts.push(`Dein Wachstumsweg als Typ ${R.ennea}: ${ennea.growth}`);
+// ─── GROWTH ───────────────────────────────────
+function genGrowth(R,mbti,ennea,lp){
+  const parts=[];
+  if(ennea) parts.push(`Dein Wachstumsweg als Typ ${R.ennea}: ${ennea.growth}`);
+  if(mbti){
+    const isN=R.mbti?.[1]==='N',isT=R.mbti?.[2]==='T';
+    if(isN&&isT) parts.push("Dein Wachstum liegt im Entwickeln von Empathie und emotionaler Intelligenz — genauso wie dein analytisches Denken.");
+    else if(isN&&!isT) parts.push("Dein Wachstum liegt in Konsequenz und der Fähigkeit, Pläne trotz Widerstand durchzuziehen.");
+    else if(!isN&&isT) parts.push("Dein Wachstum liegt darin, das große Bild nicht zu verlieren und visionärer zu denken.");
+    else parts.push("Dein Wachstum liegt darin, auch eigene Grenzen zu setzen und für dich selbst einzustehen.");
   }
-
-  if(mbti) {
-    const isN = R.mbti?.[1]==='N';
-    const isT = R.mbti?.[2]==='T';
-    if(isN && isT) parts.push("Deine Stärke liegt in strategischem Denken — dein Wachstum liegt darin, Empathie und emotionale Intelligenz genauso zu entwickeln wie dein analytisches Denken.");
-    else if(isN && !isT) parts.push("Deine Stärke liegt in Vision und Empathie — dein Wachstum liegt in Konsequenz und der Fähigkeit, Pläne trotz Widerstand durchzuziehen.");
-    else if(!isN && isT) parts.push("Deine Stärke liegt in pragmatischer Problemlösung — dein Wachstum liegt darin, das große Bild nicht aus den Augen zu verlieren.");
-    else parts.push("Deine Stärke liegt in Fürsorge und Empathie — dein Wachstum liegt darin, auch eigene Grenzen zu setzen und für dich selbst einzustehen.");
+  if(mode==='ultra'&&ennea?.intLine) {
+    const intType=ENNEA_D.find(e=>e.t===ennea.intLine);
+    if(intType) parts.push(`Im Wachstum (Integration) bewegst du dich zur positiven Seite von Typ ${ennea.intLine} (${intType.l}): ${intType.tr.slice(0,2).join(' und ')}.`);
   }
-
-  if(lp) parts.push(`Lebenspfad ${R.lp} zeigt deinen übergeordneten Wachstumsweg: ${lp.d}`);
-
+  if(lp) parts.push(lp.d);
   return parts.filter(Boolean).join(' ');
 }
 
-// ─── STRESS ───────────────────────────────────────────
-function genStress(R, mbti, ennea, inst) {
-  const parts = [];
-
-  if(ennea) {
-    parts.push(`Unter Stress zeigst du als Typ ${R.ennea}: ${ennea.stress}`);
+// ─── STRESS ───────────────────────────────────
+function genStress(R,mbti,ennea,inst){
+  const parts=[];
+  if(ennea){
+    parts.push(`Unter Stress (Desintegration) zeigst du als Typ ${R.ennea}: ${ennea.stress}`);
+    if(mode==='ultra'&&ennea.stressLine){
+      const stType=ENNEA_D.find(e=>e.t===ennea.stressLine);
+      if(stType) parts.push(`Du übernimmst unter extremem Stress negative Muster von Typ ${ennea.stressLine} (${stType.l}): ${stType.sh.slice(0,2).join(', ')}.`);
+    }
   }
-
-  if(mbti) {
-    parts.push(`Als ${R.mbti} neigst du unter Druck dazu, ${mbti.stress}.`);
-  }
-
-  // Shadow combination
-  const isE8 = R.ennea===8, is4 = R.ennea===4, is5 = R.ennea===5;
-  if(isE8 && R.inst==='sx') parts.push("Die Kombination aus Typ 8 und sx-Instinkt kann zu intensiver Kontrolle oder Obsession führen — besonders wenn du dich bedroht fühlst.");
-  if(is4 && R.inst==='sx') parts.push("Typ 4 mit sx-Instinkt: Intensive Sehnsucht, die leicht in Neid oder Drama übergehen kann wenn echte Verbindung fehlt.");
-  if(is5 && R.mbti?.startsWith('I')) parts.push("Introversion + Typ 5 verstärken sich: Übermäßiger Rückzug und emotionale Taubheit sind dein größtes Risiko in Krisenzeiten.");
-
+  if(mbti) parts.push(`Als ${R.mbti} neigst du unter Druck dazu: ${mbti.stress}.`);
+  if(R.ennea===8&&R.inst==='sx') parts.push("Die Kombination Typ 8 + sx-Instinkt kann zu extremer Intensität und Kontrollzwang führen — besonders wenn du dich bedroht fühlst.");
+  if(R.ennea===4&&R.inst==='sx') parts.push("Typ 4 mit sx-Instinkt: intensive Sehnsucht, die leicht in Neid oder Drama übergehen kann.");
+  if(R.mbti?.startsWith('I')&&R.ennea===5) parts.push("Introversion + Typ 5: übermäßiger Rückzug und emotionale Taubheit sind dein größtes Risiko.");
   return parts.filter(Boolean).join(' ');
 }
 
-// ─── SHARE ────────────────────────────────────────────
-function shareResult() {
-  const pts = [];
+// ─── NUMEROLOGY DEEP (ultra) ──────────────────
+function genNumDeep(R){
+  let html='<div class="rs"><h3>🔢 Numerologie — Tiefenprofil</h3>';
+  const parts=[];
+  if(R.lp&&LP[R.lp]) parts.push(`<b>Lebenspfad ${R.lp} (${LP[R.lp].l}):</b> ${LP[R.lp].d}`);
+  if(R._nameExpr&&EXPNUM[R._nameExpr]) parts.push(`<b>${EXPNUM[R._nameExpr].l}:</b> ${EXPNUM[R._nameExpr].d}`);
+  if(R._nameSoul&&SOULNUM[R._nameSoul]) parts.push(`<b>${SOULNUM[R._nameSoul].l}:</b> ${SOULNUM[R._nameSoul].d}`);
+  html+=`<p>${parts.join('<br><br>')}</p>`;
+  if(R._nameExpr&&R.lp){
+    const tension=R._nameExpr===R.lp?`Ausdrucks- und Lebenspfadzahl sind gleich (${R.lp}) — dein äußerer Ausdruck und dein innerer Weg sind perfekt ausgerichtet.`:`Lebenspfad ${R.lp} und Ausdruckszahl ${R._nameExpr} zeigen eine interessante Spannung: dein Lebensweg und wie du von außen wahrgenommen wirst, unterscheiden sich.`;
+    html+=`<p style="margin-top:10px;color:var(--muted);font-size:12px">${tension}</p>`;
+  }
+  html+='</div>';
+  return html;
+}
+
+// ─── ASTROLOGY DEEP (ultra) ───────────────────
+function genAstroDeep(R,sun){
+  const parts=[];
+  if(R.rising&&ZODIAC[R.rising]) parts.push(`<b>Aszendent ${ZODIAC[R.rising].e} ${R.rising}:</b> Dein Aszendent zeigt wie andere dich wahrnehmen — ${ZODIAC[R.rising].tr.slice(0,3).join(', ')}. Das ist die Maske die du der Welt zeigst, oft unbewusst.`);
+  if(R.sun&&R.rising){
+    const sunEl=ZODIAC[R.sun]?.el,risEl=ZODIAC[R.rising]?.el;
+    if(sunEl===risEl) parts.push(`Sonne und Aszendent im selben Element (${sunEl}) — dein inneres Wesen und deine äußere Wirkung sind harmonisch ausgerichtet.`);
+    else parts.push(`Sonne (${sunEl}) und Aszendent (${risEl}) in verschiedenen Elementen — du wirkst anders als du im Inneren bist. Das erzeugt oft Faszination bei anderen.`);
+  }
+  if(R.moon&&ZODIAC[R.moon]) parts.push(`<b>Mond ${R.moon}:</b> ${ZODIAC[R.moon].tr.slice(0,3).join(', ')} — das ist deine emotionale Natur und wie du instinktiv reagierst.`);
+  if(!parts.length) return '';
+  return`<div class="rs"><h3>⭐ Astrologie — Tiefenprofil</h3><p>${parts.join('<br><br>')}</p></div>`;
+}
+
+// ─── SHARE ────────────────────────────────────
+function shareResult(){
+  const pts=[];
   if(R.mbti) pts.push(R.mbti);
   if(R.ennea) pts.push('Typ '+R.ennea+(R.enneaWing||''));
+  if(R.tritype) pts.push('TT:'+R.ennea+'-'+Object.values(R.tritype).join('-'));
   if(R.sun) pts.push(R.sun);
+  if(R.rising) pts.push('↗'+R.rising);
   if(R.lp) pts.push('LP'+R.lp);
-  if(R.inst) pts.push(R.inst.toUpperCase()+'-Instinkt');
-  const txt = `Mein Persönlichkeitsprofil: ${pts.join(' · ')}\n\n${window.location.href}`;
+  if(R.inst) pts.push(R.inst.toUpperCase()+(R.inst2?'/'+R.inst2:''));
+  const txt=`Mein Persönlichkeitsprofil:\n${pts.join(' · ')}\n\n${window.location.href}`;
   if(navigator.share) navigator.share({title:'Mein Persönlichkeitsprofil',text:txt});
-  else navigator.clipboard.writeText(txt).then(()=>alert('In Zwischenablage kopiert! ✓'));
+  else navigator.clipboard.writeText(txt).then(()=>alert('Kopiert! ✓'));
 }
 </script>
 </body>
